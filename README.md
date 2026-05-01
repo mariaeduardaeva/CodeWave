@@ -1,6 +1,6 @@
 # CodeWave
 
-> E-commerce de cursos com IA integrada — Projeto A3 · Inteligência Artificial · UNP 2026.1
+> E-commerce de cursos com IA integrada - Projeto A3 · Inteligência Artificial · UNP 2026.1
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
