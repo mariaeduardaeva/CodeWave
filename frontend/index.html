@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+  <title>CodeWave</title>
+</head>
+<body>
+  <a href="index.html" class="logo">
+    <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M55 20 L35 40 L55 60" />
+        <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+        <path d="M165 20 L185 40 L165 60" />
+      </g>
+    </svg>
+  </a>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <span class="hero-tag">APRENDA. PRATIQUE. EVOLUA.</span>
+        <h1>Aprenda tecnologia do seu jeito e <span class="hero-destaque">evolua sem limites.</span></h1>
+        <p>Cursos práticos, projetos reais e uma comunidade<br>para te apoiar em cada passo da sua jornada.</p>
+        <div class="hero-buttons">
+          <button class="btn-cadastrar" onclick="window.location.href='pages/cadastro.html'">Cadastrar</button>
+          <button class="btn-entrar" onclick="window.location.href='pages/login.html'">Entrar</button>
+        </div>
+        <div class="hero-social">
+          <div class="avatares">
+            <img src="assets/image/avatar1.jpg" alt="avatar">
+            <img src="assets/image/avatar2.jpg" alt="avatar">
+            <img src="assets/image/avatar3.jpg" alt="avatar">
+            <span class="avatar-count">+10K</span>
+          </div>
+          <p>Mais de 10 mil alunos já estão<br>evoluindo com a gente. Junte-se a eles!</p>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="assets/image/landingpageimage.png" alt="Hero Image">
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature-item">
+        <i class="ph ph-list feature-icon"></i>
+        <div>
+          <h3>Cursos práticos</h3>
+          <p>Aprenda com projetos reais<br>e exercícios práticos.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <i class="ph ph-squares-four feature-icon"></i>
+        <div>
+          <h3>Trilhos de aprendizado</h3>
+          <p>Siga um caminho estruturado<br>e evolua passo a passo.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <i class="ph ph-users-three feature-icon"></i>
+        <div>
+          <h3>Comunidade ativa</h3>
+          <p>Conecte-se com outros alunos<br>e troquem experiências.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <i class="ph ph-certificate feature-icon"></i>
+        <div>
+          <h3>Certificados</h3>
+          <p>Conquiste certificados e<br>destaque seu aprendizado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cursos-destaque">
+      <div class="cursos-destaque-left">
+        <span class="destaque-tag">CURSOS EM DESTAQUE</span>
+        <h2>Comece por onde quiser, <span class="hero-destaque">evolua</span> para onde sonhar.</h2>
+      </div>
+
+      <div class="destaque-wrapper">
+        <div class="destaque-cards">
+          <div class="destaque-card" style="background: #0147A9;">
+            <div class="card-top">
+              <h3>Programação<br>orientada a objeto</h3>
+              <span class="card-tag">Backend</span>
+            </div>
+            <img src="assets/image/curso_poo.png" alt="POO" class="card-img">
+          </div>
+          <div class="destaque-card" style="background: #5629B8;">
+            <div class="card-top">
+              <h3>Básicos<br>de Figma</h3>
+              <span class="card-tag">Frontend</span>
+            </div>
+            <img src="assets/image/curso_figma.png" alt="Figma" class="card-img">
+          </div>
+          <div class="destaque-card" style="background: #03743C;">
+            <div class="card-top">
+              <h3>HTML<br>e CSS</h3>
+              <span class="card-tag">Frontend</span>
+            </div>
+            <img src="assets/image/curso_html.png" alt="HTML CSS" class="card-img">
+          </div>
+          <div class="destaque-card" style="background: #FD7B12;">
+            <div class="card-top">
+              <h3>Java: básico<br>ao avançado</h3>
+              <span class="card-tag">Backend</span>
+            </div>
+            <img src="assets/image/curso_java.png" alt="Java" class="card-img">
+          </div>
+          <div class="destaque-card" style="background: #01A7AF;">
+            <div class="card-top">
+              <h3>ReactJS: Como funciona?</h3>
+              <span class="card-tag">Frontend</span>
+            </div>
+            <img src="assets/image/curso_react.png" alt="React" class="card-img">
+          </div>
+          <div class="destaque-card" style="background: #015229;">
+            <div class="card-top">
+              <h3>APIs Rest<br>com o<br>Node.js</h3>
+              <span class="card-tag">Backend</span>
+            </div>
+            <img src="assets/image/curso_node.png" alt="Node" class="card-img">
+          </div>
+        </div>
+        <button class="destaque-next"><i class="ph ph-caret-right"></i></button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="assets/js/index.js"></script>
+</body>
+</html>

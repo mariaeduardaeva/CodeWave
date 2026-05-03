@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111111;
+  position: relative;
+}
+/* BARRA DE NAVEGAÇÃO */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 56px 56px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+.nav-item {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111111;
+  cursor: pointer;
+  padding: 8px 20px;
+  border-radius: 50px;
+  transition: all 0.2s;
+  position: relative;
+  z-index: 1;
+}
+.nav-item.active {
+  color: #fff;
+  background: transparent;
+}
+.nav-item:not(.active):hover {
+  opacity: 0.6;
+}
+.nav-left {
+  width: 120px;
+}
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+}
+.nav-pill {
+  position: absolute;
+  height: 100%;
+  background: #111111;
+  border-radius: 50px;
+  transition: left 0.3s ease, width 0.3s ease;
+  z-index: 0;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 120px;
+  justify-content: flex-end;
+}
+.nav-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-icon:hover {
+  opacity: 0.6;
+}
+.nav-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #111111;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}

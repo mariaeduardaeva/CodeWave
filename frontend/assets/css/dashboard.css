@@ -1,0 +1,10 @@
+.logo {
+  position: absolute;
+  top: 56px;
+  left: 56px;
+}
+
+.logo svg {
+  height: 32px;
+  width: auto;
+}
