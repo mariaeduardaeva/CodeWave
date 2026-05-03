@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/login.css">
+  <title>CodeWave - Login</title>
+</head>
+<body>
+  <div class="login-layout">
+
+    <div class="login-left">
+      <a href="../index.html" class="logo">
+        <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M55 20 L35 40 L55 60" />
+            <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+            <path d="M165 20 L185 40 L165 60" />
+          </g>
+        </svg>
+      </a>
+      <div class="login-left-text">
+        <h1>Continue<br>aprendendo.<br>Evolua <span class="destaque-amarelo">sempre.</span></h1>
+        <p class="login-left-desc">Faça login para acessar seus cursos, acompanhar seu progresso e continuar evoluindo na sua jornada.</p>
+      </div>
+      <img src="../assets/image/cadastrologinimage.png" alt="Login Image" class="login-img">
+    </div>
+
+    <div class="login-right">
+      <div class="login-form-wrapper">
+        <h2>Bem vindo de volta!</h2>
+        <p>Acesse sua conta e continue aprendendo</p>
+
+        <div class="form-group">
+          <label>E-mail</label>
+          <div class="input-wrapper">
+            <i class="ph ph-envelope input-icon"></i>
+            <input type="email" placeholder="seu@email.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Senha</label>
+          <div class="input-wrapper">
+            <i class="ph ph-lock input-icon"></i>
+            <input type="password" placeholder="Sua senha" id="senha">
+            <i class="ph ph-eye-slash input-icon-right" id="toggleSenha"></i>
+          </div>
+        </div>
+
+        <div class="form-links">
+          <a href="#">Esqueceu a senha?</a>
+          <a href="cadastro.html">Não é membro? Se cadastre!</a>
+        </div>
+
+        <button class="btn-login">Entrar</button>
+
+        <div class="divider">
+          <span>ou continue com</span>
+        </div>
+
+        <button class="btn-google">
+          <img src="https://www.google.com/favicon.ico" alt="Google" width="18">
+          Continuar com Google
+        </button>
+
+        <p class="form-terms">
+          Ao continuar, você concorda com nossos<br>
+          <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="../assets/js/login.js"></script>
+</body>
+</html>
