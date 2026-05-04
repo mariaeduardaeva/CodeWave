@@ -109,7 +109,7 @@ body {
 }
 
 .form-group label {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #111111;
 }
@@ -175,7 +175,7 @@ body {
   border: none;
   padding: 14px;
   border-radius: 50px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
@@ -204,7 +204,7 @@ body {
 }
 
 .divider span {
-  font-size: 13px;
+  font-size: 14px;
   color: #aaaaaa;
   white-space: nowrap;
 }
@@ -218,7 +218,7 @@ body {
   border: 1.5px solid #e0e0e000;
   padding: 12px;
   border-radius: 50px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #111111;
   cursor: pointer;

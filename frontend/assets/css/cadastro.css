@@ -98,13 +98,13 @@ body {
 }
 
 .form-header p {
-  font-size: 14px;
+  font-size: 16px;
   color: #888888;
   margin-top: 4px;
 }
 
 .voltar-login {
-  font-size: 13px;
+  font-size: 14px;
   color: #356EF6;
   font-weight: 600;
   text-decoration: none;
@@ -132,7 +132,7 @@ body {
 }
 
 .form-group label {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #111111;
 }
@@ -150,7 +150,7 @@ body {
 .input-wrapper select {
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Inter', sans-serif;
   color: #aaaaaa;
   width: 100%;
@@ -194,7 +194,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: 14px;
   color: #555555;
 }
 
@@ -216,7 +216,7 @@ body {
   border: none;
   padding: 14px;
   border-radius: 50px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
@@ -245,7 +245,7 @@ body {
 }
 
 .divider span {
-  font-size: 13px;
+  font-size: 14px;
   color: #aaaaaa;
   white-space: nowrap;
 }
@@ -259,7 +259,7 @@ body {
   border: 1.5px solid #e0e0e000;
   padding: 12px;
   border-radius: 50px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #111111;
   cursor: pointer;
