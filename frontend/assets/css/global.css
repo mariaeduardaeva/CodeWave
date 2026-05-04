@@ -16,7 +16,7 @@ nav {
   justify-content: space-between;
   padding: 56px 56px;
   background: #fff;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f000;
 }
 .nav-item {
   font-size: 24px;
