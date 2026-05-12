@@ -1,30 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/global.css">
-  <link rel="stylesheet" href="../assets/css/completo.css">
-  <title>CodeWave - Completo</title>
-</head>
-<body>
-
-  <a href="../index.html" class="logo">
-    <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css" />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/completo.css" />
+    <title>CodeWave - Completo</title>
+  </head>
+  <body>
+    <a href="../index.html" class="logo">
+      <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
         <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M55 20 L35 40 L55 60" />
-        <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
-        <path d="M165 20 L185 40 L165 60" />
-      </g>
-    </svg>
-  </a>
+          <path d="M55 20 L35 40 L55 60" />
+          <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+          <path d="M165 20 L185 40 L165 60" />
+        </g>
+      </svg>
+    </a>
 
-  <div id="navbar"></div>
+    <div id="navbar"></div>
 
-  <main></main>
+    <main>
+      <div class="dashboard-layout">
+        <div class="dashboard-left">
+          <div class="section-header">
+            <div>
+              <h2>Cursos Concluídos</h2>
+              <p>Parabéns! Você concluiu todos os cursos</p>
+            </div>
+            <div class="filtros">
+              <span class="filtro active" data-filter="todos">Todos</span>
+              <span class="filtro" data-filter="backend">Backend</span>
+              <span class="filtro" data-filter="frontend">Frontend</span>
+              <span class="filtro-more">⋮</span>
+            </div>
+          </div>
 
-  <script src="../assets/js/navbar.js"></script>
+          <div class="cursos-grid">
+            <div class="curso-card" data-categoria="backend" style="background: #0147a9">
+              <div class="card-top">
+                <h3>Programação<br>orientada<br>a objeto</h3>
+                <span class="card-tag">Backend</span>
+              </div>
+              <button class="card-btn">Ir para curso</button>
+              <p class="card-desc">Entenda os principais conceitos<br>da programação orientada a objetos</p>
+              <img src="../assets/image/curso_poo.png" class="card-img" alt="" />
+              <div class="card-footer">
+                <span class="card-date">Concluído em 28 de maio de 2026</span>
+                <span class="badge-concluido">Concluído <i class="ph ph-check-circle"></i></span>
+              </div>
+            </div>
 
-</body>
+            <div class="curso-card" data-categoria="frontend" style="background: #5629b8">
+              <div class="card-top">
+                <h3>Básicos<br>de Figma</h3>
+                <span class="card-tag">Frontend</span>
+              </div>
+              <button class="card-btn">Ir para curso</button>
+              <p class="card-desc">Aprenda a criar interfaces incríveis<br>com Figma do zero</p>
+              <img src="../assets/image/curso_figma.png" class="card-img" alt="" />
+              <div class="card-footer">
+                <span class="card-date">Concluído em 22 de maio de 2026</span>
+                <span class="badge-concluido">Concluído <i class="ph ph-check-circle"></i></span>
+              </div>
+            </div>
+
+            <div class="curso-card" data-categoria="frontend" style="background: #03743c">
+              <div class="card-top">
+                <h3>HTML<br>e<br>CSS</h3>
+                <span class="card-tag">Frontend</span>
+              </div>
+              <button class="card-btn">Ir para curso</button>
+              <p class="card-desc">Aprenda a construir páginas web<br>com HTML e CSS</p>
+              <img src="../assets/image/curso_html.png" class="card-img" alt="" />
+              <div class="card-footer">
+                <span class="card-date">Concluído em 15 de maio de 2026</span>
+                <span class="badge-concluido">Concluído <i class="ph ph-check-circle"></i></span>
+              </div>
+            </div>
+
+            <div class="curso-card" data-categoria="backend" style="background: #fd7b12">
+              <div class="card-top">
+                <h3>Java: básico<br>ao avançado</h3>
+                <span class="card-tag">Backend</span>
+              </div>
+              <button class="card-btn">Ir para curso</button>
+              <p class="card-desc">Do básico ao avançado em Java.<br>Aprenda na prática!</p>
+              <img src="../assets/image/curso_java.png" class="card-img" alt="" />
+              <div class="card-footer">
+                <span class="card-date">Concluído em 10 de maio de 2026</span>
+                <span class="badge-concluido">Concluído <i class="ph ph-check-circle"></i></span>
+              </div>
+            </div>
+
+            <div class="curso-card" data-categoria="frontend" style="background: #01a7af">
+              <div class="card-top">
+                <h3>ReactJS:<br>Como<br>funciona?</h3>
+                <span class="card-tag">Frontend</span>
+              </div>
+              <button class="card-btn">Ir para curso</button>
+              <p class="card-desc">Entenda os conceitos fundamentais<br>do ReactJS</p>
+              <img src="../assets/image/curso_react.png" class="card-img" alt="" />
+              <div class="card-footer">
+                <span class="card-date">Concluído em 05 de maio de 2026</span>
+                <span class="badge-concluido">Concluído <i class="ph ph-check-circle"></i></span>
+              </div>
+            </div>
+
+            <div class="curso-card" data-categoria="backend" style="background: #014f27">
+              <div class="card-top">
+                <h3>APIs Rest<br>com o<br>Node.js</h3>
+                <span class="card-tag">Backend</span>
+              </div>
+              <button class="card-btn">Ir para curso</button>
+              <p class="card-desc">Crie APIs robustas com o Node.js<br>e boas práticas</p>
+              <img src="../assets/image/curso_node.png" class="card-img" alt="" />
+              <div class="card-footer">
+                <span class="card-date">Concluído em 01 de maio de 2026</span>
+                <span class="badge-concluido">Concluído <i class="ph ph-check-circle"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="paginacao">
+            <button class="pag-btn"><i class="ph ph-caret-left"></i></button>
+            <button class="pag-btn"><i class="ph ph-caret-right"></i></button>
+          </div>
+        </div>
+
+        <div class="dashboard-right">
+          <div class="parabens-card">
+            <img src="../assets/image/trofeu.png" alt="Troféu" class="trofeu-img"/>
+            <div>
+              <h3>Parabéns!</h3>
+              <p>Você concluiu 6 cursos até o momento!</p>
+            </div>
+            <button class="btn-certificados">Ver certificados</button>
+          </div>
+          
+          <div class="resumo-conquistas">
+            <h3>Resumo de conquistas</h3>
+            <div class="conquista-item">
+              <i class="ph-fill ph-student conquista-icon" style="color: #fff; background: #03743c"></i>
+              <span>Cursos concluídos</span>
+              <strong>6</strong>
+            </div>
+            <div class="conquista-item">
+              <i class="ph-fill ph-clock conquista-icon" style="color: #fff; background: #0147a9"></i>
+              <span>Horas de estudo</span>
+              <strong>48h 30m</strong>
+            </div>
+            <div class="conquista-item">
+              <i class="ph-fill ph-calendar-dots conquista-icon" style="color: #fff; background: #5629b8"></i>
+              <span>Sequência atual</span>
+              <strong>10 dias</strong>
+            </div>
+            <div class="conquista-item">
+              <i class="ph-fill ph-star conquista-icon" style="color: #fff; background: #fab705"></i>
+              <span>Certificados</span>
+              <strong>6</strong>
+            </div>
+          </div>
+
+          <div class="continue-card">
+            <div class="continue-text">
+              <h3>Continue aprendendo nunca é demais!</h3>
+              <p>Confira mais cursos para seu aprendizado!</p>
+            </div>
+            <img src="../assets/image/explorarcursos.png" alt="" class="continue-img"/>
+            <button class="btn-explorar" onclick="window.location.href='dashboard.html'">Explorar cursos</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/completo.js"></script>
+  </body>
 </html>
