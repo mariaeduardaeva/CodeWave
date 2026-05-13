@@ -10,7 +10,7 @@
     <title>CodeWave - Em Andamento</title>
   </head>
   <body>
-    <a href="../index.html" class="logo">
+    <a href="../pages/dashboard.html" class="logo">
       <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
         <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
           <path d="M55 20 L35 40 L55 60"/>
@@ -43,7 +43,7 @@
           <div class="cursos-carousel-wrapper">
             <div class="cursos-carousel" id="cursosCarousel">
 
-              <div class="curso-card" data-categoria="backend" style="background: #0147a9">
+              <div class="curso-card" data-categoria="backend" data-curso="poo" style="background: #0147a9">
                 <div class="card-top">
                   <h3>Programação<br>orientada<br>a objeto</h3>
                   <span class="card-tag">Backend</span>
@@ -57,7 +57,7 @@
                 <span class="card-percent">75%</span>
               </div>
 
-              <div class="curso-card" data-categoria="frontend" style="background: #5629b8">
+              <div class="curso-card" data-categoria="frontend" data-curso="figma" style="background: #5629b8">
                 <div class="card-top">
                   <h3>Básicos<br>de<br>Figma</h3>
                   <span class="card-tag">Frontend</span>
@@ -71,7 +71,7 @@
                 <span class="card-percent">60%</span>
               </div>
 
-              <div class="curso-card" data-categoria="frontend" style="background: #03743c">
+              <div class="curso-card" data-categoria="frontend" data-curso="html" style="background: #03743c">
                 <div class="card-top">
                   <h3>HTML<br>e<br>CSS</h3>
                   <span class="card-tag">Frontend</span>
@@ -85,7 +85,7 @@
                 <span class="card-percent">40%</span>
               </div>
 
-              <div class="curso-card" data-categoria="backend" style="background: #fd7b12">
+              <div class="curso-card" data-categoria="backend" data-curso="java" style="background: #fd7b12">
                 <div class="card-top">
                   <h3>Java: básico<br>ao avançado</h3>
                   <span class="card-tag">Backend</span>
@@ -99,7 +99,7 @@
                 <span class="card-percent">20%</span>
               </div>
 
-              <div class="curso-card" data-categoria="frontend" style="background: #01a7af">
+              <div class="curso-card" data-categoria="frontend" data-curso="react" style="background: #01a7af">
                 <div class="card-top">
                   <h3>ReactJS:<br>Como<br>funciona?</h3>
                   <span class="card-tag">Frontend</span>
@@ -122,7 +122,6 @@
           <div class="atividades-section">
             <div class="atividades-header">
               <h2>Atividades</h2>
-              <button class="filter-icon-btn"><i class="ph ph-funnel"></i></button>
             </div>
 
             <div class="atividades-table">
@@ -142,7 +141,7 @@
                 </div>
                 <span class="badge-status em-progresso" style="background: #FAB705">Em progresso</span>
                 <span class="atividade-categoria">Backend</span>
-                <button class="atividade-more"><i class="ph ph-dots-three-vertical"></i></button>
+                <button class="atividade-more"><i class="ph ph-caret-right"></i></button>
               </div>
 
               <div class="atividade-row">
@@ -154,7 +153,7 @@
                 </div>
                 <span class="badge-status concluido" style="background: #0DB86C">Concluído</span>
                 <span class="atividade-categoria">Frontend</span>
-                <button class="atividade-more"><i class="ph ph-dots-three-vertical"></i></button>
+                <button class="atividade-more"><i class="ph ph-caret-right"></i></button>
               </div>
 
               <div class="atividade-row">
@@ -166,7 +165,7 @@
                 </div>
                 <span class="badge-status a-realizar" style="background: #FA1905">A realizar</span>
                 <span class="atividade-categoria">Frontend</span>
-                <button class="atividade-more"><i class="ph ph-dots-three-vertical"></i></button>
+                <button class="atividade-more"><i class="ph ph-caret-right"></i></button>
               </div>
 
             </div>

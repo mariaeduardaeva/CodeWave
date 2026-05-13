@@ -59,4 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
       carousel.scrollLeft = 0;
     });
   });
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.card-btn');
+    if (!btn) return;
+    const card = btn.closest('.curso-card');
+    if (!card || card.dataset.clone) return;
+    const cursoId = card.dataset.curso;
+    if (cursoId) {
+      window.location.href = 'clicarcurso.html?curso=' + cursoId + '&origem=em-andamento';
+    }
+  });
 });

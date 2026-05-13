@@ -9,9 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const paginacao = document.querySelector('.paginacao');
     const prevBtn = paginacao.querySelector('.pag-btn:first-child');
     const nextBtn = paginacao.querySelector('.pag-btn:last-child');
-
     paginacao.querySelectorAll('.pag-num').forEach(n => n.remove());
-
     for (let i = 1; i <= totalPaginas; i++) {
       const num = document.createElement('span');
       num.classList.add('pag-num');
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderCards(visiveis) {
     cards.forEach(c => c.style.display = 'none');
-
     const inicio = (paginaAtual - 1) * porPagina;
     const fim = inicio + porPagina;
     visiveis.slice(inicio, fim).forEach(c => c.style.display = 'flex');
@@ -43,13 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
       filtros.forEach(f => f.classList.remove('active'));
       btn.classList.add('active');
       paginaAtual = 1;
-
       const filter = btn.dataset.filter;
       cards.forEach(card => {
         const match = filter === 'todos' || card.dataset.categoria === filter;
         card.style.display = match ? 'flex' : 'none';
       });
-
       renderCards(cardsVisiveis());
       renderPaginacao(cardsVisiveis().length);
     });
@@ -57,4 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderCards(cardsVisiveis());
   renderPaginacao(cards.length);
+
+  document.querySelectorAll('.card-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.curso-card');
+      const cursoId = card.dataset.curso;
+      if (cursoId) {
+        window.location.href = 'clicarcurso.html?curso=' + cursoId;
+      }
+    });
+  });
 });

@@ -52,4 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderCards(cardsVisiveis());
   renderPaginacao(cardsVisiveis());
+
+  document.querySelectorAll('.card-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.curso-card');
+      const cursoId = card.dataset.curso;
+      if (cursoId) {
+        window.location.href = 'clicarcurso.html?curso=' + cursoId + '&origem=completo';
+      }
+    });
+  });
 });
