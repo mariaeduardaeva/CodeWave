@@ -4,10 +4,12 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
 .login-layout {
   display: flex;
   height: 100vh;
 }
+
 .login-left {
   width: 38%;
   background: #014bab;
@@ -18,36 +20,43 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .logo {
   position: absolute;
   top: 56px;
   left: 56px;
 }
+
 .logo svg {
   height: 32px;
   width: auto;
 }
+
 .login-left-text {
   margin-top: 170px;
   padding-left: 30px;
   z-index: 2;
 }
+
 .login-left-text h1 {
   font-size: 58px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.15;
 }
+
 .destaque-amarelo {
-  color: #FAB705;
+  color: #fab705;
 }
+
 .login-left-desc {
   font-size: 18px;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 1.6;
   margin-top: 24px;
   max-width: 390px;
 }
+
 .login-img {
   width: 130%;
   align-self: center;
@@ -55,6 +64,7 @@ body {
   z-index: 1;
   position: relative;
 }
+
 .login-right {
   flex: 1;
   display: flex;
@@ -63,6 +73,7 @@ body {
   background: #ffffff;
   padding: 230px 0;
 }
+
 .login-form-wrapper {
   width: 100%;
   max-width: 500px;
@@ -70,29 +81,35 @@ body {
   flex-direction: column;
   gap: 16px;
 }
+
 .login-form-wrapper h2 {
   font-size: 32px;
   font-weight: 700;
   color: #111111;
 }
+
 .login-form-wrapper > p {
   font-size: 16px;
   color: #888888;
   margin-top: -8px;
 }
+
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
+
 .form-group:first-of-type {
   margin-top: 28px;
 }
+
 .form-group label {
   font-size: 16px;
   font-weight: 600;
   color: #111111;
 }
+
 .input-wrapper {
   display: flex;
   align-items: center;
@@ -102,14 +119,17 @@ body {
   gap: 10px;
   transition: border-color 0.2s;
 }
+
 .input-wrapper:focus-within {
   border-color: #014bab;
 }
+
 .input-icon {
   font-size: 18px;
   color: #aaaaaa;
   flex-shrink: 0;
 }
+
 .input-icon-right {
   font-size: 18px;
   color: #aaaaaa;
@@ -117,14 +137,16 @@ body {
   cursor: pointer;
   flex-shrink: 0;
 }
+
 .input-wrapper input {
   border: none;
   outline: none;
   font-size: 14px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #111111;
   width: 100%;
 }
+
 .form-links {
   display: flex;
   flex-direction: column;
@@ -132,15 +154,18 @@ body {
   gap: 4px;
   margin-top: 12px;
 }
+
 .form-links a {
   font-size: 14px;
-  color: #356EF6;
+  color: #356ef6;
   font-weight: 600;
   text-decoration: none;
 }
+
 .form-links a:hover {
   opacity: 0.7;
 }
+
 .btn-login {
   background: #111111;
   border: none;
@@ -150,50 +175,35 @@ body {
   font-weight: 600;
   color: #fff;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   transition: background 0.2s;
   width: 100%;
 }
+
 .btn-login:hover {
   background: #333333;
 }
+
 .divider {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .divider::before,
 .divider::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 1px;
   background: #e0e0e0;
 }
+
 .divider span {
   font-size: 14px;
   color: #aaaaaa;
   white-space: nowrap;
 }
-.btn-google {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: transparent;
-  border: 1.5px solid #e0e0e000;
-  padding: 12px;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #111111;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  transition: all 0.2s;
-  width: 100%;
-}
-.btn-google:hover {
-  border-color: #014bab;
-}
+
 .form-terms {
   font-size: 14px;
   color: #aaaaaa;
@@ -202,20 +212,23 @@ body {
   margin-top: auto;
   padding-top: 190px;
 }
+
 .form-terms a,
 .voltar-login,
 .voltar-login:visited,
 .voltar-login:active {
-  color: #356EF6;
+  color: #356ef6;
   font-weight: 600;
   text-decoration: none;
 }
+
 .voltar-login {
   display: flex;
   align-items: center;
   gap: 4px;
   font-size: 14px;
 }
+
 .voltar-login:hover {
   opacity: 0.7;
 }

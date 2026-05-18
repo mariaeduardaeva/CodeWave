@@ -250,28 +250,6 @@ body {
   white-space: nowrap;
 }
 
-.btn-google {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: transparent;
-  border: 1.5px solid #e0e0e000;
-  padding: 12px;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #111111;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  transition: all 0.2s;
-  width: 100%;
-}
-
-.btn-google:hover {
-  border-color: #014bab;
-}
-
 .form-check input[type="checkbox"]:checked {
   accent-color: #356EF6;
 }
