@@ -160,6 +160,14 @@ function validarEmailVisual() {
   }
 }
 
+function validarForcaSenha(val) {
+  if (val.length < 8)             return 'mínimo 8 caracteres'
+  if (!/[A-Z]/.test(val))         return 'precisa de uma letra maiúscula'
+  if (!/[0-9]/.test(val))         return 'precisa de um número'
+  if (!/[^a-zA-Z0-9]/.test(val))  return 'precisa de um caractere especial'
+  return null
+}
+
 function marcarErro(input, mensagem) {
   const formGroup = input.closest('.form-group')
   const wrapper = formGroup.querySelector('.input-wrapper')
