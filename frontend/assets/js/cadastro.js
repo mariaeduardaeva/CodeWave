@@ -107,25 +107,26 @@ if (paisSelect) {
 }
 
 function atualizarForcaSenha(val) {
-  const temTamanho  = val.length >= 8
+  const temTamanho   = val.length >= 8
   const temMaiuscula = /[A-Z]/.test(val)
+  const temNumero    = /[0-9]/.test(val)
   const temEspecial  = /[^a-zA-Z0-9]/.test(val)
 
-  atualizarRequisito('req-tamanho',  temTamanho)
+  atualizarRequisito('req-tamanho',   temTamanho)
   atualizarRequisito('req-maiuscula', temMaiuscula)
+  atualizarRequisito('req-numero',    temNumero)
   atualizarRequisito('req-especial',  temEspecial)
 
-  const pontos = [temTamanho, temMaiuscula, temEspecial].filter(Boolean).length
-  const cores = ['#ef4444', '#f97316', '#16a34a']
-  const labels = ['Fraca', 'Média', 'Forte']
-  const cor = pontos === 0 ? '#e0e0e0' : cores[pontos - 1]
-  const label = pontos === 0 ? '' : labels[pontos - 1]
+  const pontos = [temTamanho, temMaiuscula, temNumero, temEspecial].filter(Boolean).length
+  const cor = pontos <= 1 ? '#ef4444' : pontos <= 2 ? '#f97316' : pontos <= 3 ? '#facc15' : '#16a34a'
+  const label = pontos === 0 ? '' : pontos <= 1 ? 'Fraca' : pontos <= 2 ? 'Média' : pontos <= 3 ? 'Boa' : 'Forte'
 
   document.getElementById('barra1').style.background = pontos >= 1 ? cor : '#e0e0e0'
   document.getElementById('barra2').style.background = pontos >= 2 ? cor : '#e0e0e0'
   document.getElementById('barra3').style.background = pontos >= 3 ? cor : '#e0e0e0'
+  document.getElementById('barra4').style.background = pontos >= 4 ? cor : '#e0e0e0'
   document.getElementById('forcaLabel').textContent = label
-  document.getElementById('forcaLabel').style.color = cor
+  document.getElementById('forcaLabel').style.color = pontos === 0 ? '#e0e0e0' : cor
 }
 
 function atualizarRequisito(id, ok) {
@@ -157,13 +158,6 @@ function validarEmailVisual() {
     }
     return emailValido || valor === ''
   }
-}
-
-function validarForcaSenha(val) {
-  if (val.length < 8)            return 'mínimo 8 caracteres'
-  if (!/[A-Z]/.test(val))        return 'precisa de uma letra maiúscula'
-  if (!/[^a-zA-Z0-9]/.test(val)) return 'precisa de um caractere especial'
-  return null
 }
 
 function marcarErro(input, mensagem) {
