@@ -188,7 +188,7 @@ def login():
     if not user:
         return jsonify({
             "success": False,
-            "message": "Usuário não encontrado"
+            "message": "não encontrado"
         }), 401
 
     user_id = user[0]
@@ -204,7 +204,7 @@ def login():
     if not password_correct:
         return jsonify({
             "success": False,
-            "message": "Senha incorreta"
+            "message": "incorreta"
         }), 401
 
     session["user_id"] = user_id

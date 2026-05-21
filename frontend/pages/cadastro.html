@@ -68,10 +68,29 @@
               <input type="password" placeholder="Crie uma senha" id="senha">
               <i class="ph ph-eye-slash input-icon-right" id="toggleSenha"></i>
             </div>
+            <div class="senha-forca" id="senhaForca">
+              <div class="forca-barra-wrapper">
+                <div class="forca-barra" id="barra1"></div>
+                <div class="forca-barra" id="barra2"></div>
+                <div class="forca-barra" id="barra3"></div>
+              </div>
+              <span class="forca-label" id="forcaLabel"></span>
+            </div>
+            <div class="senha-requisitos" id="senhaRequisitos">
+              <span class="requisito" id="req-tamanho">
+                <i class="ph ph-bold ph-x-circle"></i> Mínimo 8 caracteres
+              </span>
+              <span class="requisito" id="req-maiuscula">
+                <i class="ph ph-bold ph-x-circle"></i> Uma letra maiúscula
+              </span>
+              <span class="requisito" id="req-especial">
+                <i class="ph ph-bold ph-x-circle"></i> Um caractere especial: ! @ # $ %
+              </span>
+            </div>
           </div>
 
           <div class="form-group">
-            <label>Confirmar senha</label>
+            <label>Confirmar senha</label>          
             <div class="input-wrapper">
               <i class="ph ph-lock input-icon"></i>
               <input type="password" placeholder="Confirme sua senha" id="confirmarSenha">

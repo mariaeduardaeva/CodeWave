@@ -253,3 +253,66 @@ body {
 .form-check input[type="checkbox"]:checked {
   accent-color: #356EF6;
 }
+
+.senha-requisitos {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+.senha-requisitos.visivel {
+  display: flex;
+}
+.requisito {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #888888;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.requisito i {
+  font-size: 15px;
+  flex-shrink: 0;
+  color: #cccccc;
+  transition: color 0.2s;
+}
+.requisito.ok {
+  color: #16a34a;
+}
+.requisito.ok i {
+  color: #16a34a;
+}
+.requisito.erro {
+  color: #ef4444;
+}
+.requisito.erro i {
+  color: #ef4444;
+}
+.senha-forca {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 2px;
+}
+.senha-forca.visivel {
+  display: flex;
+}
+.forca-barra-wrapper {
+  display: flex;
+  gap: 4px;
+}
+.forca-barra {
+  flex: 1;
+  height: 4px;
+  border-radius: 99px;
+  background: #e0e0e0;
+  transition: background 0.3s;
+}
+.forca-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888888;
+  transition: color 0.3s;
+}
