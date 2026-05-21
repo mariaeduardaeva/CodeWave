@@ -123,12 +123,6 @@ def register():
         "loginSenha"
     )
 
-    if not name or not email or not password:
-        return jsonify({
-            "success": False,
-            "message": "Preencha todos os campos"
-        }), 400
-
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
 
@@ -178,12 +172,6 @@ def login():
         "senha",
         "loginSenha"
     )
-
-    if not email or not password:
-        return jsonify({
-            "success": False,
-            "message": "Preencha todos os campos"
-        }), 400
 
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
