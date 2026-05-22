@@ -25,7 +25,6 @@ async function concluirAula(indexAula) {
   _estadoCurso.progresso = novoProgresso;
 
   await salvarProgressoBackend(cursoId, novoProgresso);
-
   atualizarProgressoUI(curso, novoProgresso);
   document.querySelector('.aulas-list').innerHTML = renderAulas(curso.aulas, true, novoProgresso);
 }
@@ -233,12 +232,11 @@ function renderizarCurso(curso, matriculado, progressoBackend) {
     btnContinuarBlack.textContent = textoBotao;
     btnContinuarBlack.addEventListener('click', () => comprarCurso(cursoId));
   } else {
-    const indexEmAndamento = progresso >= 100
-      ? -1
-      : progresso === 0 ? 0 : Math.floor(curso.aulas.length * progresso / 100);
-
     const aoContinar = () => {
-      if (indexEmAndamento >= 0) concluirAula(indexEmAndamento);
+      const { curso: c, progresso: p } = _estadoCurso;
+      if (p >= 100) return;
+      const index = p === 0 ? 0 : Math.floor(c.aulas.length * p / 100);
+      concluirAula(index);
     };
 
     btnContinuar.addEventListener('click', aoContinar);
@@ -311,6 +309,7 @@ async function carregarCurso() {
   } catch (err) {
     console.warn('Não foi possível verificar matrículas no backend, usando dados locais.', err);
   }
+
   const progressoFinal = !matriculado
     ? 0
     : progressoBackend !== undefined ? progressoBackend : curso.progresso;
