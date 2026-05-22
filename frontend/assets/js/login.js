@@ -110,7 +110,7 @@ if (btnLogin) {
         return
       }
 
-      window.location.href = 'dashboard.html'
+      window.location.href = data.redirect
     } catch (error) {
       console.error(error)
       marcarErro(emailInput, 'erro de conexão')

@@ -1,11 +1,13 @@
 const cursos = {
   poo: {
+    matriculado: true,
     cor: '#0147A9',
     titulo: 'Programação orientada a objeto',
     descricao: 'Entenda os principais conceitos da programação orientada a objetos e aplique na prática.',
     imagem: '../assets/image/curso_poo.png',
     categoria: 'Backend',
     nivel: 'Iniciante',
+    preco: 'R$ 79,99',
     progresso: 75,
     totalAulas: 16,
     aulasFeitas: 12,
@@ -22,12 +24,14 @@ const cursos = {
   },
 
   figma: {
+    matriculado: true,
     cor: '#5629B8',
     titulo: 'Básicos de Figma',
     descricao: 'Aprenda a criar interfaces incríveis com Figma do zero ao avançado.',
     imagem: '../assets/image/curso_figma.png',
     categoria: 'Frontend',
     nivel: 'Iniciante',
+    preco: 'R$ 59,99',
     progresso: 100,
     totalAulas: 12,
     aulasFeitas: 12,
@@ -44,12 +48,14 @@ const cursos = {
   },
 
   html: {
+    matriculado: true,
     cor: '#03743C',
     titulo: 'HTML e CSS',
     descricao: 'Aprenda a construir páginas web modernas com HTML e CSS do zero.',
     imagem: '../assets/image/curso_html.png',
     categoria: 'Frontend',
     nivel: 'Iniciante',
+    preco: 'R$ 49,99',
     progresso: 75,
     totalAulas: 14,
     aulasFeitas: 10,
@@ -68,12 +74,14 @@ const cursos = {
   },
 
   java: {
+    matriculado: true,
     cor: '#FD7B12',
     titulo: 'Java: básico ao avançado',
     descricao: 'Do básico ao avançado em Java. Aprenda na prática com projetos reais.',
     imagem: '../assets/image/curso_java.png',
     categoria: 'Backend',
     nivel: 'Intermediário',
+    preco: 'R$ 89,99',
     progresso: 45,
     totalAulas: 20,
     aulasFeitas: 9,
@@ -96,12 +104,14 @@ const cursos = {
   },
 
   react: {
+    matriculado: false,
     cor: '#01A7AF',
     titulo: 'ReactJS: Como funciona?',
     descricao: 'Entenda os conceitos fundamentais do ReactJS e construa aplicações modernas.',
     imagem: '../assets/image/curso_react.png',
     categoria: 'Frontend',
     nivel: 'Intermediário',
+    preco: 'R$ 69,99',
     progresso: 0,
     totalAulas: 15,
     aulasFeitas: 0,
@@ -119,12 +129,14 @@ const cursos = {
   },
 
   node: {
+    matriculado: false,
     cor: '#014F27',
     titulo: 'APIs Rest com o Node.js',
     descricao: 'Crie APIs robustas e escaláveis com Node.js seguindo boas práticas do mercado.',
     imagem: '../assets/image/curso_node.png',
     categoria: 'Backend',
     nivel: 'Avançado',
+    preco: 'R$ 99,99',
     progresso: 30,
     totalAulas: 18,
     aulasFeitas: 5,

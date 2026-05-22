@@ -42,77 +42,6 @@
 
           <div class="cursos-carousel-wrapper">
             <div class="cursos-carousel" id="cursosCarousel">
-
-              <div class="curso-card" data-categoria="backend" data-curso="poo" style="background: #0147a9">
-                <div class="card-top">
-                  <h3>Programação<br>orientada<br>a objeto</h3>
-                  <span class="card-tag">Backend</span>
-                </div>
-                <button class="card-btn">Ir para curso</button>
-                <p class="card-desc">Entenda os principais conceitos<br>da programação orientada a objetos</p>
-                <img src="../assets/image/curso_poo.png" class="card-img" alt=""/>
-                <div class="card-progress-wrap">
-                  <div class="card-progress-bar" style="width: 75%; background: #FACC15;"></div>
-                </div>
-                <span class="card-percent">75%</span>
-              </div>
-
-              <div class="curso-card" data-categoria="frontend" data-curso="figma" style="background: #5629b8">
-                <div class="card-top">
-                  <h3>Básicos<br>de<br>Figma</h3>
-                  <span class="card-tag">Frontend</span>
-                </div>
-                <button class="card-btn">Ir para curso</button>
-                <p class="card-desc">Aprenda a criar interfaces<br>incríveis com Figma do zero</p>
-                <img src="../assets/image/curso_figma.png" class="card-img" alt=""/>
-                <div class="card-progress-wrap">
-                  <div class="card-progress-bar" style="width: 60%; background: #4ADE80;"></div>
-                </div>
-                <span class="card-percent">60%</span>
-              </div>
-
-              <div class="curso-card" data-categoria="frontend" data-curso="html" style="background: #03743c">
-                <div class="card-top">
-                  <h3>HTML<br>e<br>CSS</h3>
-                  <span class="card-tag">Frontend</span>
-                </div>
-                <button class="card-btn">Ir para curso</button>
-                <p class="card-desc">Aprenda a construir<br>páginas web com HTML e CSS</p>
-                <img src="../assets/image/curso_html.png" class="card-img" alt=""/>
-                <div class="card-progress-wrap">
-                  <div class="card-progress-bar" style="width: 40%; background: #4ADE80;"></div>
-                </div>
-                <span class="card-percent">40%</span>
-              </div>
-
-              <div class="curso-card" data-categoria="backend" data-curso="java" style="background: #fd7b12">
-                <div class="card-top">
-                  <h3>Java: básico<br>ao avançado</h3>
-                  <span class="card-tag">Backend</span>
-                </div>
-                <button class="card-btn">Ir para curso</button>
-                <p class="card-desc">Do básico ao avançado em Java.<br>Aprenda na prática!</p>
-                <img src="../assets/image/curso_java.png" class="card-img" alt=""/>
-                <div class="card-progress-wrap">
-                  <div class="card-progress-bar" style="width: 20%; background: #FACC15;"></div>
-                </div>
-                <span class="card-percent">20%</span>
-              </div>
-
-              <div class="curso-card" data-categoria="frontend" data-curso="react" style="background: #01a7af">
-                <div class="card-top">
-                  <h3>ReactJS:<br>Como<br>funciona?</h3>
-                  <span class="card-tag">Frontend</span>
-                </div>
-                <button class="card-btn">Ir para curso</button>
-                <p class="card-desc">Entenda os conceitos<br>fundamentais do ReactJS</p>
-                <img src="../assets/image/curso_react.png" class="card-img" alt=""/>
-                <div class="card-progress-wrap">
-                  <div class="card-progress-bar" style="width: 55%; background: #4ADE80;"></div>
-                </div>
-                <span class="card-percent">55%</span>
-              </div>
-
             </div>
           </div>
           <button class="carousel-btn carousel-next" id="carouselNext">
@@ -131,43 +60,11 @@
                 <span>Categoria</span>
                 <span></span>
               </div>
-
-              <div class="atividade-row">
-                <div class="atividade-curso">
-                  <div class="atividade-icon" style="background: #0147a9">
-                    <img src="../assets/image/curso_poo.png" alt=""/>
-                  </div>
-                  <span>Programação orientada a objeto</span>
-                </div>
-                <span class="badge-status em-progresso" style="background: #FAB705">Em progresso</span>
-                <span class="atividade-categoria">Backend</span>
-                <button class="atividade-more" onclick="window.location.href='atividade.html'"><i class="ph ph-caret-right"></i></button>
+              <div id="atividades-lista"></div>
+              <div class="paginacao" id="paginacao-atividades">
+                <button class="pag-btn" id="pag-prev"><i class="ph ph-caret-left"></i></button>
+                <button class="pag-btn" id="pag-next"><i class="ph ph-caret-right"></i></button>
               </div>
-
-              <div class="atividade-row">
-                <div class="atividade-curso">
-                  <div class="atividade-icon" style="background: #5629b8">
-                    <img src="../assets/image/curso_figma.png" alt=""/>
-                  </div>
-                  <span>Básicos do Figma</span>
-                </div>
-                <span class="badge-status concluido" style="background: #0DB86C">Concluído</span>
-                <span class="atividade-categoria">Frontend</span>
-                <button class="atividade-more" onclick="window.location.href='atividade.html'"><i class="ph ph-caret-right"></i></button>
-              </div>
-
-              <div class="atividade-row">
-                <div class="atividade-curso">
-                  <div class="atividade-icon" style="background: #03743c">
-                    <img src="../assets/image/curso_html.png" alt=""/>
-                  </div>
-                  <span>HTML e CSS para iniciantes</span>
-                </div>
-                <span class="badge-status a-realizar" style="background: #FA1905">A realizar</span>
-                <span class="atividade-categoria">Frontend</span>
-                <button class="atividade-more" onclick="window.location.href='atividade.html'"><i class="ph ph-caret-right"></i></button>
-              </div>
-
             </div>
           </div>
         </div>
@@ -227,6 +124,7 @@
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/cursos.js"></script>
     <script src="../assets/js/em-andamento.js"></script>
   </body>
 </html>

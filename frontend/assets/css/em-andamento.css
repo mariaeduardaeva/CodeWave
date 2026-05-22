@@ -251,6 +251,46 @@ main {
   gap: 0;
 }
 
+#atividades-lista {
+  min-height: 220px;
+}
+
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 0;
+}
+
+.pag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #111111;
+  display: flex;
+  align-items: center;
+}
+
+.pag-num {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #9C9C9C;
+}
+
+.pag-num.active {
+  background: #111111;
+  color: #fff;
+}
+
 .atividades-thead {
   display: grid;
   grid-template-columns: 1fr 300px 120px 32px;
@@ -516,5 +556,5 @@ main {
   gap: 16px;
   overflow: hidden;
   scroll-behavior: smooth;
-  max-width: calc(3 * 390px + 1 * 16px);
+  max-width: calc(3 * 390px + 2 * 16px);
 }

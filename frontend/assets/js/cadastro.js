@@ -274,7 +274,7 @@ if (btnCadastro) {
         return
       }
 
-      window.location.href = 'login.html'
+      window.location.href = data.redirect
     } catch (error) {
       console.error(error)
       marcarErro(emailInput, 'erro de conexão')

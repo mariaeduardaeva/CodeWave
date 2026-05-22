@@ -274,13 +274,14 @@
   position: relative;
   z-index: 1;
   animation: slideDown 0.2s ease;
+  border-radius: 0;
 }
 
 .pix-form {
   background: #fafbff;
   border: 1.5px solid #358E62;
   border-top: none;
-  border-radius: 0 0 14px 14px;
+  border-radius: 0 0 0 0;
   padding: 20px 18px;
   position: relative;
   z-index: 1;
@@ -452,7 +453,13 @@
 .payment-option.selected.boleto-selected {
   border-color: #555;
   background: #F9F9F9;
-  border-radius: 0 14px 0 0;
+  border-radius: 0 0 0 0;
+}
+
+.payment-option.selected.card-selected {
+  border-color: #356EF6;
+  background: #F5F8FF;
+  border-radius: 0 0 0 0;
 }
 
 @keyframes slideDown {
