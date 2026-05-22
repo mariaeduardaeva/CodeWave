@@ -17,6 +17,11 @@ const cursos = {
       { nome: 'Aula 3 - Encapsulamento',     dur: '20 minutos', desc: 'Entenda o princípio do encapsulamento: como proteger os dados internos de um objeto.' },
       { nome: 'Aula 4 - Herança',            dur: '18 minutos', desc: 'Descubra como a herança permite criar novas classes a partir de classes existentes.' },
       { nome: 'Aula 5 - Polimorfismo',       dur: '22 minutos', desc: 'Aprenda como o polimorfismo permite que objetos de diferentes classes sejam tratados de forma uniforme.' },
+    ],
+    atividades: [
+      { id: 'poo-1', titulo: 'Variáveis e Tipos de Dados',  tipo: 'Exercício' },
+      { id: 'poo-2', titulo: 'Herança e Polimorfismo',      tipo: 'Exercício' },
+      { id: 'poo-3', titulo: 'Encapsulamento na prática',   tipo: 'Exercício' },
     ]
   },
 
@@ -38,6 +43,10 @@ const cursos = {
       { nome: 'Aula 3 - Componentes',         dur: '18 minutos', desc: 'Crie e reutilize componentes para agilizar seu fluxo de trabalho.' },
       { nome: 'Aula 4 - Estilos e Variáveis', dur: '14 minutos', desc: 'Padronize cores, tipografia e efeitos com estilos globais.' },
       { nome: 'Aula 5 - Prototipagem',        dur: '20 minutos', desc: 'Crie protótipos interativos e apresente seus projetos.' },
+    ],
+    atividades: [
+      { id: 'figma-1', titulo: 'Criando interfaces com Figma', tipo: 'Exercício' },
+      { id: 'figma-2', titulo: 'Componentes e Auto Layout',    tipo: 'Exercício' },
     ]
   },
 
@@ -61,6 +70,11 @@ const cursos = {
       { nome: 'Aula 5 - Posicionamento',     dur: '18 minutos', desc: 'Domine position, display e as formas de posicionar elementos.' },
       { nome: 'Aula 6 - Flexbox na prática', dur: '18 minutos', desc: 'Aprenda a criar layouts flexíveis com Flexbox.' },
       { nome: 'Aula 7 - Grid Layout',        dur: '20 minutos', desc: 'Crie layouts complexos com CSS Grid.' },
+    ],
+    atividades: [
+      { id: 'html-1', titulo: 'Construindo uma página web', tipo: 'Exercício' },
+      { id: 'html-2', titulo: 'Layout com Flexbox',         tipo: 'Exercício' },
+      { id: 'html-3', titulo: 'Grid Layout na prática',     tipo: 'Exercício' },
     ]
   },
 
@@ -84,10 +98,15 @@ const cursos = {
       { nome: 'Aula 5 - Classes e Objetos',      dur: '22 minutos', desc: 'Entenda a orientação a objetos aplicada ao Java.' },
       { nome: 'Aula 6 - Herança em Java',        dur: '20 minutos', desc: 'Implemente herança e reutilize código de forma eficiente.' },
       { nome: 'Aula 7 - Interfaces',             dur: '18 minutos', desc: 'Aprenda a usar interfaces para definir contratos entre classes.' },
-      { nome: 'Aula 8 - Exceções',              dur: '16 minutos', desc: 'Trate erros com try, catch e crie exceções customizadas.' },
-      { nome: 'Aula 9 - Generics',              dur: '22 minutos', desc: 'Use generics para criar código mais seguro e reutilizável.' },
-      { nome: 'Aula 10 - Coleções e Listas',    dur: '25 minutos', desc: 'Trabalhe com ArrayList, HashMap e outras estruturas de dados.' },
-      { nome: 'Aula 11 - Streams e Lambdas',    dur: '28 minutos', desc: 'Processe coleções de forma funcional com Streams e Lambdas.' },
+      { nome: 'Aula 8 - Exceções',               dur: '16 minutos', desc: 'Trate erros com try, catch e crie exceções customizadas.' },
+      { nome: 'Aula 9 - Generics',               dur: '22 minutos', desc: 'Use generics para criar código mais seguro e reutilizável.' },
+      { nome: 'Aula 10 - Coleções e Listas',     dur: '25 minutos', desc: 'Trabalhe com ArrayList, HashMap e outras estruturas de dados.' },
+      { nome: 'Aula 11 - Streams e Lambdas',     dur: '28 minutos', desc: 'Processe coleções de forma funcional com Streams e Lambdas.' },
+    ],
+    atividades: [
+      { id: 'java-1', titulo: 'Orientação a Objetos em Java', tipo: 'Exercício' },
+      { id: 'java-2', titulo: 'Tratamento de Exceções',       tipo: 'Exercício' },
+      { id: 'java-3', titulo: 'Coleções e Streams',           tipo: 'Exercício' },
     ]
   },
 
@@ -110,6 +129,10 @@ const cursos = {
       { nome: 'Aula 4 - Props',               dur: '15 minutos', desc: 'Passe dados entre componentes usando props.' },
       { nome: 'Aula 5 - useState',            dur: '20 minutos', desc: 'Gerencie o estado local de um componente com o hook useState.' },
       { nome: 'Aula 6 - useEffect',           dur: '22 minutos', desc: 'Execute efeitos colaterais com o hook useEffect.' },
+    ],
+    atividades: [
+      { id: 'react-1', titulo: 'Componentes e Props',  tipo: 'Exercício' },
+      { id: 'react-2', titulo: 'Hooks na prática',     tipo: 'Exercício' },
     ]
   },
 
@@ -134,6 +157,10 @@ const cursos = {
       { nome: 'Aula 6 - Middlewares',                dur: '22 minutos', desc: 'Entenda e crie middlewares para autenticação, logs e validação.' },
       { nome: 'Aula 7 - Conexão com banco de dados', dur: '28 minutos', desc: 'Conecte sua API a um banco de dados relacional com Sequelize.' },
       { nome: 'Aula 8 - Autenticação JWT',           dur: '25 minutos', desc: 'Implemente autenticação segura com JSON Web Tokens.' },
+    ],
+    atividades: [
+      { id: 'node-1', titulo: 'Criando uma API REST',    tipo: 'Exercício' },
+      { id: 'node-2', titulo: 'Autenticação com JWT',    tipo: 'Exercício' },
     ]
   }
 };
