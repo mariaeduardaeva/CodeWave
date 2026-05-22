@@ -1,3 +1,15 @@
+function parsearMinutos(durStr) {
+  const match = durStr.match(/(\d+)/);
+  return match ? parseInt(match[1]) : 0;
+}
+
+function calcularTempoTotal(aulas) {
+  const totalMin = aulas.reduce((acc, a) => acc + parsearMinutos(a.dur), 0);
+  const horas = Math.floor(totalMin / 60);
+  const minutos = totalMin % 60;
+  return `${String(horas).padStart(2, '0')}h ${String(minutos).padStart(2, '0')}m`;
+}
+
 const params = new URLSearchParams(window.location.search);
 const cursoId = params.get('curso');
 const curso = cursos[cursoId];
@@ -15,6 +27,12 @@ if (curso) {
   document.getElementById('subtotal-val').textContent = curso.preco;
   document.getElementById('total-val').textContent = curso.preco;
   document.querySelector('.order-thumb').style.background = curso.cor;
+
+  const totalAulas = curso.aulas.length;
+  const tempoTotal = calcularTempoTotal(curso.aulas);
+  const metaItems = document.querySelectorAll('.meta-item span');
+  metaItems[0].textContent = totalAulas + ' aulas';
+  metaItems[1].textContent = tempoTotal + ' de conteúdo';
 }
 
 const options = document.querySelectorAll('.payment-option');
@@ -153,18 +171,18 @@ async function finalizarCompra() {
     try {
       if (cursoId) {
         await fetch('http://127.0.0.1:5000/comprar', {
-  method: 'POST',
-  credentials: 'include',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ curso_id: cursoId })
-});
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ curso_id: cursoId })
+        });
 
-await fetch('http://127.0.0.1:5000/progresso', {
-  method: 'POST',
-  credentials: 'include',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ curso_id: cursoId, progresso: 1 })
-});
+        await fetch('http://127.0.0.1:5000/progresso', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ curso_id: cursoId, progresso: 1 })
+        });
       }
     } catch (e) {
       console.warn('Erro ao registrar matrícula:', e);
