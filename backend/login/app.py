@@ -3,6 +3,7 @@ from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import os
+from datetime import datetime, date, timedelta
 
 BASE_DIR     = os.path.dirname(os.path.abspath(__file__))
 FRONTEND_DIR = os.path.join(BASE_DIR, "..", "..", "frontend")
@@ -50,6 +51,15 @@ def init_db():
             UNIQUE(user_id, atividade_id)
         )
     """)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS login_history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            login_date DATE NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES users(id),
+            UNIQUE(user_id, login_date)
+        )
+    """)
 
     try:
         cursor.execute("ALTER TABLE atividades_concluidas ADD COLUMN status TEXT NOT NULL DEFAULT 'pendente'")
@@ -61,6 +71,48 @@ def init_db():
     conn.close()
 
 init_db()
+
+
+def registrar_login(user_id):
+    """Salva a data de hoje no histórico de logins (ignora duplicatas)."""
+    conn   = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+    cursor.execute(
+        "INSERT OR IGNORE INTO login_history (user_id, login_date) VALUES (?, ?)",
+        (user_id, date.today().isoformat())
+    )
+    conn.commit()
+    conn.close()
+
+
+def calcular_sequencia(user_id):
+    """Conta quantos dias consecutivos até hoje o usuário fez login."""
+    conn   = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+    cursor.execute(
+        "SELECT login_date FROM login_history WHERE user_id = ? ORDER BY login_date DESC",
+        (user_id,)
+    )
+    rows = cursor.fetchall()
+    conn.close()
+
+    if not rows:
+        return 0
+
+    datas = [date.fromisoformat(r[0]) for r in rows]
+    hoje  = date.today()
+
+    if datas[0] < hoje - timedelta(days=1):
+        return 0
+
+    sequencia = 1
+    for i in range(1, len(datas)):
+        if datas[i - 1] - datas[i] == timedelta(days=1):
+            sequencia += 1
+        else:
+            break
+
+    return sequencia
 
 
 def get_input(*names):
@@ -104,7 +156,17 @@ def register():
         (name, email, generate_password_hash(password), data_nascimento, pais)
     )
     conn.commit()
+
+    cursor.execute("SELECT id, name, email FROM users WHERE email = ?", (email,))
+    user = cursor.fetchone()
     conn.close()
+
+    session["user_id"]    = user[0]
+    session["user_name"]  = user[1]
+    session["user_email"] = user[2]
+
+    registrar_login(user[0])
+
     return jsonify({"success": True, "message": "Cadastro realizado com sucesso",
                     "redirect": "/pages/dashboard.html"})
 
@@ -128,6 +190,9 @@ def login():
     session["user_id"]    = user[0]
     session["user_name"]  = user[1]
     session["user_email"] = user[2]
+
+    registrar_login(user[0])
+
     return jsonify({"success": True, "message": "Login realizado com sucesso",
                     "redirect": "/pages/dashboard.html"})
 
@@ -147,6 +212,16 @@ def session_user():
 def logout():
     session.clear()
     return jsonify({"success": True})
+
+
+@app.route("/meu-progresso")
+def meu_progresso():
+    """Retorna sequência de login e matrículas para cálculo de horas no frontend."""
+    if "user_id" not in session:
+        return jsonify({"success": False, "message": "Não logado"}), 401
+
+    sequencia = calcular_sequencia(session["user_id"])
+    return jsonify({"success": True, "sequencia": sequencia})
 
 
 @app.route("/minhas-matriculas")

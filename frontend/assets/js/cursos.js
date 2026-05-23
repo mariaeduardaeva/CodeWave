@@ -10,6 +10,7 @@ const cursos = {
     preco: 'R$ 79,99',
     progresso: 75,
     sequencia: '10 dias',
+    horario: '21:00',
     quando: 'Hoje • 21 Horas',
     aulas: [
       { nome: 'Aula 1 - Introdução à POO',  dur: '10 minutos', desc: 'Nesta aula você aprenderá os conceitos fundamentais da Programação Orientada a Objetos.' },
@@ -36,6 +37,7 @@ const cursos = {
     preco: 'R$ 59,99',
     progresso: 100,
     sequencia: '10 dias',
+    horario: '19:00',
     quando: 'Hoje • 21 Horas',
     aulas: [
       { nome: 'Aula 1 - Introdução ao Figma', dur: '12 minutos', desc: 'Conheça a interface do Figma e suas principais ferramentas.' },
@@ -61,6 +63,7 @@ const cursos = {
     preco: 'R$ 49,99',
     progresso: 75,
     sequencia: '10 dias',
+    horario: '14:00',
     quando: 'Hoje • 14 Horas',
     aulas: [
       { nome: 'Aula 1 - Estrutura HTML',     dur: '10 minutos', desc: 'Entenda a estrutura básica de um documento HTML.' },
@@ -89,6 +92,7 @@ const cursos = {
     preco: 'R$ 89,99',
     progresso: 45,
     sequencia: '10 dias',
+    horario: '15:00',
     quando: 'Hoje • 15 Horas',
     aulas: [
       { nome: 'Aula 1 - Introdução ao Java',     dur: '12 minutos', desc: 'Conheça a linguagem Java e configure seu ambiente de desenvolvimento.' },
@@ -121,6 +125,7 @@ const cursos = {
     preco: 'R$ 69,99',
     progresso: 0,
     sequencia: '10 dias',
+    horario: '22:00',
     quando: 'Hoje • 22 Horas',
     aulas: [
       { nome: 'Aula 1 - Introdução ao React', dur: '14 minutos', desc: 'Entenda o que é o React e por que ele é tão popular.' },
@@ -147,6 +152,7 @@ const cursos = {
     preco: 'R$ 99,99',
     progresso: 0,
     sequencia: '10 dias',
+    horario: '20:00',
     quando: 'Hoje • 22 Horas',
     aulas: [
       { nome: 'Aula 1 - Introdução ao Node.js',      dur: '12 minutos', desc: 'Entenda o que é o Node.js e como funciona o modelo assíncrono.' },

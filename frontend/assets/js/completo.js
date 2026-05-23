@@ -1,18 +1,32 @@
 document.addEventListener('DOMContentLoaded', async () => {
   const grid = document.getElementById('cursos-grid');
   let matriculas = {};
+  let sequencia  = 0;
+
   try {
-    const res = await fetch('http://127.0.0.1:5000/minhas-matriculas', { credentials: 'include' });
-    const data = await res.json();
-    if (data.success) matriculas = data.matriculas;
+    const [resMatriculas, resProgresso] = await Promise.all([
+      fetch('/minhas-matriculas', { credentials: 'include' }),
+      fetch('/meu-progresso',     { credentials: 'include' })
+    ]);
+
+    if (resMatriculas.ok) {
+      const data = await resMatriculas.json();
+      if (data.success) matriculas = data.matriculas || {};
+    }
+    if (resProgresso.ok) {
+      const data = await resProgresso.json();
+      if (data.success) sequencia = data.sequencia || 0;
+    }
   } catch (e) {
-    console.warn('Erro ao buscar matrículas:', e);
+    console.warn('Erro ao buscar dados:', e);
+    Object.entries(cursos).forEach(([id, c]) => {
+      if (c.matriculado) matriculas[id] = c.progresso;
+    });
   }
 
   let totalConcluidos = 0;
   Object.entries(cursos).forEach(([id, curso]) => {
-    const progresso = matriculas[id];
-    if (progresso !== 100) return;
+    if (matriculas[id] !== 100) return;
     totalConcluidos++;
     grid.innerHTML += `
       <div class="curso-card" data-categoria="${curso.categoria.toLowerCase()}" data-curso="${id}" style="background: ${curso.cor};">
@@ -32,21 +46,41 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   const subtitulo = document.querySelector('.section-header p');
-  if (totalConcluidos === 0) {
-    subtitulo.textContent = 'Você não concluiu nenhum curso';
-  } else {
-    subtitulo.textContent = `Parabéns! Você concluiu ${totalConcluidos} curso${totalConcluidos !== 1 ? 's' : ''}`;
+  if (subtitulo) {
+    subtitulo.textContent = totalConcluidos === 0
+      ? 'Você não concluiu nenhum curso'
+      : `Parabéns! Você concluiu ${totalConcluidos} curso${totalConcluidos !== 1 ? 's' : ''}`;
   }
 
-  const totalEl = document.getElementById('total-concluidos');
-  const certEl = document.getElementById('total-certificados');
-  const parabensEl = document.getElementById('parabens-texto');
-  if (totalEl) totalEl.textContent = totalConcluidos;
-  if (certEl) certEl.textContent = totalConcluidos;
-  if (parabensEl) parabensEl.textContent = `Você conquistou ${totalConcluidos} curso${totalConcluidos !== 1 ? 's' : ''} certificado${totalConcluidos !== 1 ? 's' : ''}`;
+  function parsearMinutos(dur) {
+    const match = dur.match(/(\d+)/);
+    return match ? parseInt(match[1]) : 0;
+  }
 
-  const filtros = document.querySelectorAll('.filtro[data-filter]');
-  const cards = Array.from(document.querySelectorAll('.curso-card'));
+  let totalMinutos = 0;
+  Object.entries(cursos).forEach(([id, curso]) => {
+    if (matriculas[id] !== 100 || !curso.aulas) return;
+    curso.aulas.forEach(aula => { totalMinutos += parsearMinutos(aula.dur); });
+  });
+
+  const horas    = Math.floor(totalMinutos / 60);
+  const minutos  = totalMinutos % 60;
+  const horasStr = totalMinutos === 0 ? '—' : minutos > 0 ? `${horas}h ${minutos}m` : `${horas}h`;
+
+  const totalEl      = document.getElementById('total-concluidos');
+  const certEl       = document.getElementById('total-certificados');
+  const parabensEl   = document.getElementById('parabens-texto');
+  const horasEl      = document.getElementById('resumoHoras');
+  const sequenciaEl  = document.getElementById('resumoSequencia');
+
+  if (totalEl)     totalEl.textContent    = totalConcluidos;
+  if (certEl)      certEl.textContent     = totalConcluidos;
+  if (parabensEl)  parabensEl.textContent = `Você conquistou ${totalConcluidos} curso${totalConcluidos !== 1 ? 's' : ''} certificado${totalConcluidos !== 1 ? 's' : ''}`;
+  if (horasEl)     horasEl.textContent    = horasStr;
+  if (sequenciaEl) sequenciaEl.textContent = sequencia > 0 ? `${sequencia} dia${sequencia !== 1 ? 's' : ''}` : '—';
+
+  const filtros   = document.querySelectorAll('.filtro[data-filter]');
+  const cards     = Array.from(document.querySelectorAll('.curso-card'));
   const paginacao = document.querySelector('.paginacao');
   const porPagina = 6;
   let paginaAtual = 1;
@@ -100,11 +134,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.querySelectorAll('.card-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const card = btn.closest('.curso-card');
-      const cursoId = card.dataset.curso;
-      if (cursoId) {
-        window.location.href = 'clicarcurso.html?curso=' + cursoId + '&origem=completo';
-      }
+      const cursoId = btn.closest('.curso-card').dataset.curso;
+      if (cursoId) window.location.href = 'clicarcurso.html?curso=' + cursoId + '&origem=completo';
     });
   });
 });

@@ -1,6 +1,7 @@
 let _estadoCurso = null;
 
-async function salvarProgressoBackend(cursoId, novoProgresso) {
+async function salvarProgressoBackend(cursoId, aulasConcluidas, totalAulas) {
+  const novoProgresso = Math.round((aulasConcluidas / totalAulas) * 100);
   try {
     await fetch('/progresso', {
       method: 'POST',
@@ -13,23 +14,28 @@ async function salvarProgressoBackend(cursoId, novoProgresso) {
   }
 }
 
-async function concluirAula(indexAula) {
+async function concluirAula() {
   if (!_estadoCurso) return;
 
   const { curso, cursoId } = _estadoCurso;
   const totalAulas = curso.aulas.length;
 
-  const concluidasAgora = indexAula + 1;
-  const novoProgresso = Math.round((concluidasAgora / totalAulas) * 100);
+  if (_estadoCurso.aulasConcluidas >= totalAulas) return;
 
+  _estadoCurso.aulasConcluidas += 1;
+  const novoProgresso = Math.round((_estadoCurso.aulasConcluidas / totalAulas) * 100);
   _estadoCurso.progresso = novoProgresso;
 
-  await salvarProgressoBackend(cursoId, novoProgresso);
-  atualizarProgressoUI(curso, novoProgresso);
-  document.querySelector('.aulas-list').innerHTML = renderAulas(curso.aulas, true, novoProgresso);
+  await salvarProgressoBackend(cursoId, _estadoCurso.aulasConcluidas, totalAulas);
+  atualizarProgressoUI(curso, _estadoCurso.aulasConcluidas, novoProgresso);
+
+  document.querySelector('.aulas-list').innerHTML =
+    renderAulas(curso.aulas, true, _estadoCurso.aulasConcluidas);
 }
 
-function atualizarProgressoUI(curso, progresso) {
+function atualizarProgressoUI(curso, aulasConcluidas, progresso) {
+  const totalAulas = curso.aulas.length;
+
   document.querySelector('.progress-fill').style.width = progresso + '%';
   document.querySelector('.hero-progress-label').textContent = progresso + '% Concluído';
   document.querySelector('.progresso-pct').textContent = progresso + '%';
@@ -37,13 +43,10 @@ function atualizarProgressoUI(curso, progresso) {
   const circulo = document.querySelectorAll('.progresso-circle svg circle')[1];
   circulo.setAttribute('stroke-dashoffset', calcularDashoffset(progresso));
 
-  const totalAulas = curso.aulas.length;
-  const aulasFeitas = progresso >= 100
-    ? totalAulas
-    : Math.floor(totalAulas * progresso / 100);
-  document.querySelectorAll('.stat-val')[0].textContent = aulasFeitas + ' de ' + totalAulas;
+  document.querySelectorAll('.stat-val')[0].textContent =
+    aulasConcluidas + ' de ' + totalAulas;
 
-  atualizarProximaAulaUI(curso.aulas, progresso);
+  atualizarProximaAulaUI(curso.aulas, aulasConcluidas);
 }
 
 function toggleAula(btn) {
@@ -71,58 +74,54 @@ function getBadgeAula(status) {
   return `<span class="aula-badge bloqueada-badge">Bloqueada</span>`;
 }
 
-function resolverStatusAulas(aulas, matriculado, progresso) {
+function resolverStatusAulas(aulas, matriculado, aulasConcluidas) {
   if (!matriculado) {
     return aulas.map(a => ({ ...a, status: 'bloqueada' }));
   }
 
-  if (progresso === 0) {
-    return aulas.map((a, i) => ({
-      ...a,
-      status: i === 0 ? 'andamento' : 'bloqueada'
-    }));
-  }
-
-  if (progresso >= 100) {
-    return aulas.map(a => ({ ...a, status: 'concluida' }));
-  }
-
-  const total = aulas.length;
-  const concluidasCount = Math.floor(total * progresso / 100);
-
   return aulas.map((a, i) => {
-    if (i < concluidasCount) return { ...a, status: 'concluida' };
-    if (i === concluidasCount) return { ...a, status: 'andamento' };
+    if (i < aulasConcluidas)  return { ...a, status: 'concluida' };
+    if (i === aulasConcluidas) return { ...a, status: 'andamento' };
     return { ...a, status: 'bloqueada' };
   });
 }
 
-function renderAulas(aulas, matriculado, progresso) {
-  const aulasResolvidas = resolverStatusAulas(aulas, matriculado, progresso);
+function renderAulas(aulas, matriculado, aulasConcluidas) {
+  const aulasResolvidas = resolverStatusAulas(aulas, matriculado, aulasConcluidas);
+  const totalAulas = aulas.length;
+  const todasConcluidas = aulasConcluidas >= totalAulas;
 
-  return aulasResolvidas.map((aula, index) => `
-    <div class="aula-item ${aula.status}">
-      <div class="aula-left">
-        <div class="aula-icon ${aula.status === 'concluida' ? 'concluida-icon' : aula.status === 'andamento' ? 'play-icon' : 'lock-icon'}"
-          ${aula.status === 'andamento' ? `onclick="concluirAula(${index})" style="cursor:pointer;" title="Marcar como concluída"` : ''}>
-          ${getIconeAula(aula.status)}
+  return aulasResolvidas.map((aula, index) => {
+    const isAndamento = aula.status === 'andamento';
+
+    const iconeOnclick = (isAndamento && !todasConcluidas)
+      ? `onclick="concluirAula()" style="cursor:pointer;" title="Marcar como concluída"`
+      : '';
+
+    return `
+      <div class="aula-item ${aula.status}">
+        <div class="aula-left">
+          <div class="aula-icon ${aula.status === 'concluida' ? 'concluida-icon' : isAndamento ? 'play-icon' : 'lock-icon'}"
+            ${iconeOnclick}>
+            ${getIconeAula(aula.status)}
+          </div>
+          <div class="aula-info">
+            <span class="aula-nome">${aula.nome}</span>
+            <span class="aula-dur">${aula.dur}</span>
+          </div>
         </div>
-        <div class="aula-info">
-          <span class="aula-nome">${aula.nome}</span>
-          <span class="aula-dur">${aula.dur}</span>
+        <div class="aula-right">
+          ${getBadgeAula(aula.status)}
+          <button class="aula-toggle" onclick="toggleAula(this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
       </div>
-      <div class="aula-right">
-        ${getBadgeAula(aula.status)}
-        <button class="aula-toggle" onclick="toggleAula(this)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
+      <div class="aula-dropdown" style="display:none;">
+        <p>${aula.desc}</p>
       </div>
-    </div>
-    <div class="aula-dropdown" style="display:none;">
-      <p>${aula.desc}</p>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 function calcularDashoffset(progresso) {
@@ -142,38 +141,26 @@ function calcularTempoTotal(aulas) {
   return `${String(horas).padStart(2, '0')}h ${String(minutos).padStart(2, '0')}m`;
 }
 
-function calcularProximaAula(aulas, progresso) {
+function calcularProximaAula(aulas, aulasConcluidas) {
   const total = aulas.length;
-
-  if (progresso >= 100) {
-    const ultima = aulas[total - 1];
-    return { nome: ultima.nome, numero: `Aula ${total}`, duracao: ultima.dur };
-  }
-
-  const concluidasCount = progresso === 0 ? 0 : Math.floor(total * progresso / 100);
-  const indexProxima = Math.min(concluidasCount, total - 1);
-  const aula = aulas[indexProxima];
-
+  const index = Math.min(aulasConcluidas, total - 1);
+  const aula = aulas[index];
   return {
     nome: aula.nome,
-    numero: `Aula ${indexProxima + 1}`,
+    numero: `Aula ${index + 1}`,
     duracao: aula.dur
   };
 }
 
-function atualizarProximaAulaUI(aulas, progresso) {
-  const proxima = calcularProximaAula(aulas, progresso);
+function atualizarProximaAulaUI(aulas, aulasConcluidas) {
+  const proxima = calcularProximaAula(aulas, aulasConcluidas);
   document.querySelector('.proxima-titulo').textContent = proxima.nome;
   document.querySelector('.proxima-badge').textContent = proxima.numero;
   document.querySelector('.proxima-dur').textContent = proxima.duracao;
 }
 
-function renderizarCurso(curso, matriculado, progressoBackend) {
-  const progresso = !matriculado
-    ? 0
-    : progressoBackend !== undefined
-      ? progressoBackend
-      : curso.progresso;
+function renderizarCurso(curso, matriculado, aulasConcluidas) {
+  const progresso = !matriculado ? 0 : Math.round((aulasConcluidas / curso.aulas.length) * 100);
 
   document.querySelector('.bread-current').textContent = curso.titulo;
   document.querySelector('.hero-content h1').textContent = curso.titulo;
@@ -185,24 +172,19 @@ function renderizarCurso(curso, matriculado, progressoBackend) {
   document.querySelector('.hero-progress-label').textContent = progresso + '% Concluído';
   document.title = 'CodeWave - ' + curso.titulo;
 
-  document.querySelector('.aulas-list').innerHTML = renderAulas(curso.aulas, matriculado, progresso);
+  document.querySelector('.aulas-list').innerHTML =
+    renderAulas(curso.aulas, matriculado, aulasConcluidas);
 
-  const dashoffset = calcularDashoffset(progresso);
   document.querySelector('.progresso-pct').textContent = progresso + '%';
   const circulo = document.querySelectorAll('.progresso-circle svg circle')[1];
-  circulo.setAttribute('stroke-dashoffset', dashoffset);
+  circulo.setAttribute('stroke-dashoffset', calcularDashoffset(progresso));
 
   const totalAulas = curso.aulas.length;
-
-  const aulasFeitas = progresso >= 100
-    ? totalAulas
-    : Math.floor(totalAulas * progresso / 100);
-
-  document.querySelectorAll('.stat-val')[0].textContent = aulasFeitas + ' de ' + totalAulas;
+  document.querySelectorAll('.stat-val')[0].textContent = aulasConcluidas + ' de ' + totalAulas;
   document.querySelectorAll('.stat-val')[1].textContent = calcularTempoTotal(curso.aulas);
   document.querySelectorAll('.stat-val')[2].textContent = curso.sequencia;
 
-  const proxima = calcularProximaAula(curso.aulas, progresso);
+  const proxima = calcularProximaAula(curso.aulas, aulasConcluidas);
   document.querySelector('.proxima-titulo').textContent = proxima.nome;
   document.querySelector('.proxima-badge').textContent = proxima.numero;
   document.querySelector('.proxima-dur').textContent = proxima.duracao;
@@ -228,19 +210,12 @@ function renderizarCurso(curso, matriculado, progressoBackend) {
 
     btnContinuar.textContent = textoBotao;
     btnContinuar.addEventListener('click', () => comprarCurso(cursoId));
-
     btnContinuarBlack.textContent = textoBotao;
     btnContinuarBlack.addEventListener('click', () => comprarCurso(cursoId));
   } else {
-    const aoContinar = () => {
-      const { curso: c, progresso: p } = _estadoCurso;
-      if (p >= 100) return;
-      const index = p === 0 ? 0 : Math.floor(c.aulas.length * p / 100);
-      concluirAula(index);
-    };
-
-    btnContinuar.addEventListener('click', aoContinar);
-    btnContinuarBlack.addEventListener('click', aoContinar);
+    const aoContinuar = () => concluirAula();
+    btnContinuar.addEventListener('click', aoContinuar);
+    btnContinuarBlack.addEventListener('click', aoContinuar);
   }
 
   document.querySelector('.btn-conteudo').addEventListener('click', () => {
@@ -279,9 +254,9 @@ async function carregarCurso() {
 
   const origem = params.get('origem') || 'dashboard';
   const origens = {
-    'dashboard':     { label: 'Todos',        href: 'dashboard.html' },
-    'em-andamento':  { label: 'Em andamento', href: 'em-andamento.html' },
-    'completo':      { label: 'Completo',      href: 'completo.html' },
+    'dashboard':    { label: 'Todos',        href: 'dashboard.html' },
+    'em-andamento': { label: 'Em andamento', href: 'em-andamento.html' },
+    'completo':     { label: 'Completo',     href: 'completo.html' },
   };
   const paginaOrigem = origens[origem] || origens['dashboard'];
   const breadcrumbLink = document.querySelector('.breadcrumb a');
@@ -298,7 +273,6 @@ async function carregarCurso() {
 
   try {
     const res = await fetch('/minhas-matriculas', { credentials: 'include' });
-
     if (res.ok) {
       const data = await res.json();
       if (data.success && data.matriculas) {
@@ -310,13 +284,22 @@ async function carregarCurso() {
     console.warn('Não foi possível verificar matrículas no backend, usando dados locais.', err);
   }
 
-  const progressoFinal = !matriculado
-    ? 0
-    : progressoBackend !== undefined ? progressoBackend : curso.progresso;
+  const totalAulas = curso.aulas.length;
+  let aulasConcluidas = 0;
 
-  _estadoCurso = { curso, cursoId, matriculado, progresso: progressoFinal };
+  if (matriculado) {
+    const pct = progressoBackend !== undefined ? progressoBackend : curso.progresso;
 
-  renderizarCurso(curso, matriculado, progressoBackend);
+    if (pct >= 100) {
+      aulasConcluidas = totalAulas;
+    } else {
+      aulasConcluidas = Math.round((pct / 100) * totalAulas);
+    }
+  }
+
+  _estadoCurso = { curso, cursoId, matriculado, aulasConcluidas, progresso: progressoBackend ?? curso.progresso };
+
+  renderizarCurso(curso, matriculado, aulasConcluidas);
 }
 
 document.addEventListener('DOMContentLoaded', carregarCurso);

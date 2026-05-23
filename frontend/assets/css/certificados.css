@@ -87,6 +87,8 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  min-height: 588px;
+  align-content: start;
 }
 
 .cert-card {

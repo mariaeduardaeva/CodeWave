@@ -31,7 +31,7 @@
           <div class="section-header">
             <div>
               <h2>Meus Certificados</h2>
-              <p>Aqui estão todos os certificados que você conquistou.</p>
+              <p>Aqui estão todos os certificados que você conquistou</p>
             </div>
             <div class="filtros">
               <span class="filtro active" data-filter="todos">Todos</span>
@@ -41,111 +41,12 @@
             </div>
           </div>
 
-          <div class="cursos-grid">
-
-            <div class="cert-card" data-categoria="backend">
-              <div class="cert-thumb" style="background: #0147a9">
-                <img src="../assets/image/curso_poo.png" alt="POO">
-                <span class="card-tag">Backend</span>
-              </div>
-              <div class="cert-info">
-                <span class="cert-date">Concluído em 28 de maio de 2026</span>
-                <div class="cert-status">
-                  <i class="ph-fill ph-check-circle" style="color: #03743c; font-size: 18px;"></i>
-                  <span>Curso concluído</span>
-                </div>
-                <h3>Programação orientada a objeto</h3>
-                <a href="#" class="cert-link">Baixar certificado <i class="ph ph-caret-right"></i></a>
-              </div>
-            </div>
-
-            <div class="cert-card" data-categoria="frontend">
-              <div class="cert-thumb" style="background: #5629b8">
-                <img src="../assets/image/curso_figma.png" alt="Figma">
-                <span class="card-tag">Frontend</span>
-              </div>
-              <div class="cert-info">
-                <span class="cert-date">Concluído em 22 de maio de 2026</span>
-                <div class="cert-status">
-                  <i class="ph-fill ph-check-circle" style="color: #03743c; font-size: 18px;"></i>
-                  <span>Curso concluído</span>
-                </div>
-                <h3>Básicos de Figma</h3>
-                <a href="#" class="cert-link">Baixar certificado <i class="ph ph-caret-right"></i></a>
-              </div>
-            </div>
-
-            <div class="cert-card" data-categoria="frontend">
-              <div class="cert-thumb" style="background: #03743c">
-                <img src="../assets/image/curso_html.png" alt="HTML">
-                <span class="card-tag">Frontend</span>
-              </div>
-              <div class="cert-info">
-                <span class="cert-date">Concluído em 15 de maio de 2026</span>
-                <div class="cert-status">
-                  <i class="ph-fill ph-check-circle" style="color: #03743c; font-size: 18px;"></i>
-                  <span>Curso concluído</span>
-                </div>
-                <h3>HTML e CSS</h3>
-                <a href="#" class="cert-link">Baixar certificado <i class="ph ph-caret-right"></i></a>
-              </div>
-            </div>
-
-            <div class="cert-card" data-categoria="backend">
-              <div class="cert-thumb" style="background: #fd7b12">
-                <img src="../assets/image/curso_java.png" alt="Java">
-                <span class="card-tag">Backend</span>
-              </div>
-              <div class="cert-info">
-                <span class="cert-date">Concluído em 10 de maio de 2026</span>
-                <div class="cert-status">
-                  <i class="ph-fill ph-check-circle" style="color: #03743c; font-size: 18px;"></i>
-                  <span>Curso concluído</span>
-                </div>
-                <h3>Java: básico ao avançado</h3>
-                <a href="#" class="cert-link">Baixar certificado <i class="ph ph-caret-right"></i></a>
-              </div>
-            </div>
-
-            <div class="cert-card" data-categoria="frontend">
-              <div class="cert-thumb" style="background: #01a7af">
-                <img src="../assets/image/curso_react.png" alt="React">
-                <span class="card-tag">Frontend</span>
-              </div>
-              <div class="cert-info">
-                <span class="cert-date">Concluído em 05 de maio de 2026</span>
-                <div class="cert-status">
-                  <i class="ph-fill ph-check-circle" style="color: #03743c; font-size: 18px;"></i>
-                  <span>Curso concluído</span>
-                </div>
-                <h3>ReactJS: Como funciona?</h3>
-                <a href="#" class="cert-link">Baixar certificado <i class="ph ph-caret-right"></i></a>
-              </div>
-            </div>
-
-            <div class="cert-card" data-categoria="backend">
-              <div class="cert-thumb" style="background: #014f27">
-                <img src="../assets/image/curso_node.png" alt="Node">
-                <span class="card-tag">Backend</span>
-              </div>
-              <div class="cert-info">
-                <span class="cert-date">Concluído em 01 de maio de 2026</span>
-                <div class="cert-status">
-                  <i class="ph-fill ph-check-circle" style="color: #03743c; font-size: 18px;"></i>
-                  <span>Curso concluído</span>
-                </div>
-                <h3>APIs Rest com o Node.js</h3>
-                <a href="#" class="cert-link">Baixar certificado <i class="ph ph-caret-right"></i></a>
-              </div>
-            </div>
-
+          <div class="cursos-grid" id="certificadosGrid">
+            <p style="color:#9C9C9C; padding:24px 0">Carregando certificados...</p>
           </div>
 
           <div class="paginacao">
             <button class="pag-btn"><i class="ph ph-caret-left"></i></button>
-            <span class="pag-num active">1</span>
-            <span class="pag-num">2</span>
-            <span class="pag-num">3</span>
             <button class="pag-btn"><i class="ph ph-caret-right"></i></button>
           </div>
 
@@ -158,7 +59,7 @@
               <img src="../assets/image/trofeu.png" alt="Troféu" class="trofeu-img"/>
               <div>
                 <h3>Parabéns!</h3>
-                <p>Você conquistou<br>6 certificados</p>
+                <p id="parabensTexto">Você conquistou<br>0 certificados</p>
               </div>
             </div>
           </div>
@@ -168,22 +69,22 @@
             <div class="conquista-item">
               <i class="ph-fill ph-student conquista-icon" style="color: #fff; background: #03743c"></i>
               <span>Cursos concluídos</span>
-              <strong>6</strong>
+              <strong id="resumoConcluidos">0</strong>
             </div>
             <div class="conquista-item">
               <i class="ph-fill ph-clock conquista-icon" style="color: #fff; background: #0147a9"></i>
               <span>Horas de estudo</span>
-              <strong>48h 30m</strong>
+              <strong id="resumoHoras">—</strong>
             </div>
             <div class="conquista-item">
               <i class="ph-fill ph-calendar-dots conquista-icon" style="color: #fff; background: #5629b8"></i>
               <span>Sequência atual</span>
-              <strong>10 dias</strong>
+              <strong id="resumoSequencia">—</strong>
             </div>
             <div class="conquista-item">
               <i class="ph-fill ph-star conquista-icon" style="color: #fff; background: #fab705"></i>
               <span>Certificados</span>
-              <strong>6</strong>
+              <strong id="resumoCertificados">0</strong>
             </div>
           </div>
 
@@ -211,7 +112,11 @@
     </main>
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script src="../assets/js/certificados.js"></script>
     <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/cursos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="../assets/js/certificados.js"></script>
   </body>
 </html>

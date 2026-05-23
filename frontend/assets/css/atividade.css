@@ -126,6 +126,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-height: 588px;
 }
 
 .atividade-item {

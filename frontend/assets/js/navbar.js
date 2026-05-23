@@ -1,16 +1,28 @@
 const cursosData = {
-  poo: { titulo: 'Programação orientada a objeto', categoria: 'Backend', nivel: 'Iniciante', cor: '#0147A9' },
-  figma: { titulo: 'Básicos de Figma', categoria: 'Frontend', nivel: 'Iniciante', cor: '#5629B8' },
-  html: { titulo: 'HTML e CSS', categoria: 'Frontend', nivel: 'Iniciante', cor: '#03743C' },
-  java: { titulo: 'Java: básico ao avançado', categoria: 'Backend', nivel: 'Intermediário', cor: '#FD7B12' },
-  react: { titulo: 'ReactJS: Como funciona?', categoria: 'Frontend', nivel: 'Intermediário', cor: '#01A7AF' },
-  node: { titulo: 'APIs Rest com o Node.js', categoria: 'Backend', nivel: 'Avançado', cor: '#014F27' },
+  poo:   { titulo: 'Programação orientada a objeto', categoria: 'Backend',   nivel: 'Iniciante',    cor: '#0147A9' },
+  figma: { titulo: 'Básicos de Figma',               categoria: 'Frontend',  nivel: 'Iniciante',    cor: '#5629B8' },
+  html:  { titulo: 'HTML e CSS',                     categoria: 'Frontend',  nivel: 'Iniciante',    cor: '#03743C' },
+  java:  { titulo: 'Java: básico ao avançado',        categoria: 'Backend',   nivel: 'Intermediário',cor: '#FD7B12' },
+  react: { titulo: 'ReactJS: Como funciona?',         categoria: 'Frontend',  nivel: 'Intermediário',cor: '#01A7AF' },
+  node:  { titulo: 'APIs Rest com o Node.js',         categoria: 'Backend',   nivel: 'Avançado',     cor: '#014F27' },
 }
 
 function loadNavbar() {
   const isInPages = window.location.pathname.includes('/pages/')
+  const logoHref  = isInPages ? 'dashboard.html' : 'pages/dashboard.html'
+
   const navbar = `
     <nav>
+      <a href="${logoHref}" class="nav-logo">
+        <svg width="auto" height="32" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M55 20 L35 40 L55 60" />
+            <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+            <path d="M165 20 L185 40 L165 60" />
+          </g>
+        </svg>
+      </a>
+
       <div class="nav-left"></div>
       <div class="nav-center" id="nav-center">
         <span class="nav-pill"></span>
@@ -76,7 +88,7 @@ function loadNavbar() {
 
   function movePill(item) {
     pill.style.width = item.offsetWidth + 'px'
-    pill.style.left = item.offsetLeft + 'px'
+    pill.style.left  = item.offsetLeft  + 'px'
   }
 
   document.querySelectorAll('.nav-item').forEach(item => {
@@ -101,12 +113,12 @@ function loadNavbar() {
     })
   })
 
-  const searchToggle = document.getElementById('nav-search-toggle')
+  const searchToggle  = document.getElementById('nav-search-toggle')
   const searchWrapper = document.getElementById('nav-search-wrapper')
-  const searchInput = document.getElementById('nav-search-input')
-  const searchClose = document.getElementById('nav-search-close')
+  const searchInput   = document.getElementById('nav-search-input')
+  const searchClose   = document.getElementById('nav-search-close')
   const searchResults = document.getElementById('nav-search-results')
-  const navCenter = document.getElementById('nav-center')
+  const navCenter     = document.getElementById('nav-center')
 
   function openSearch() {
     searchWrapper.classList.add('open')
@@ -122,16 +134,9 @@ function loadNavbar() {
     searchResults.classList.remove('open')
   }
 
-  searchToggle.addEventListener('click', e => {
-    e.stopPropagation()
-    openSearch()
-  })
-
+  searchToggle.addEventListener('click', e => { e.stopPropagation(); openSearch() })
   searchClose.addEventListener('click', closeSearch)
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeSearch()
-  })
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch() })
 
   searchInput.addEventListener('input', () => {
     const query = searchInput.value.trim().toLowerCase()
@@ -168,12 +173,12 @@ function loadNavbar() {
 
     searchResults.querySelectorAll('.search-result-item').forEach(item => {
       item.addEventListener('click', async () => {
-        const id = item.dataset.id
+        const id   = item.dataset.id
         const base = isInPages ? '' : 'pages/'
 
         try {
-          const res = await fetch('/minhas-matriculas', { credentials: 'include' })
-          const data = await res.json()
+          const res      = await fetch('/minhas-matriculas', { credentials: 'include' })
+          const data     = await res.json()
           const matriculas = data.success ? data.matriculas : {}
 
           if (matriculas[id] !== undefined) {
@@ -189,13 +194,11 @@ function loadNavbar() {
   })
 
   document.addEventListener('click', e => {
-    if (!searchWrapper.contains(e.target) && e.target !== searchToggle) {
-      closeSearch()
-    }
+    if (!searchWrapper.contains(e.target) && e.target !== searchToggle) closeSearch()
   })
 
-  const notifToggle = document.getElementById('nav-notif-toggle')
-  const notifDropdown = document.getElementById('notification-dropdown')
+  const notifToggle    = document.getElementById('nav-notif-toggle')
+  const notifDropdown  = document.getElementById('notification-dropdown')
 
   notifToggle.addEventListener('click', e => {
     e.stopPropagation()
@@ -206,7 +209,7 @@ function loadNavbar() {
   document.addEventListener('click', () => notifDropdown.classList.remove('open'))
   notifDropdown.addEventListener('click', e => e.stopPropagation())
 
-  const avatar = document.getElementById('nav-avatar')
+  const avatar          = document.getElementById('nav-avatar')
   const profileDropdown = document.getElementById('profile-dropdown')
 
   avatar.addEventListener('click', e => {
@@ -227,7 +230,7 @@ function loadNavbar() {
       }
       const { name, email } = data.user
       document.getElementById('nav-avatar-letter').textContent = name.charAt(0).toUpperCase()
-      document.getElementById('profile-name').textContent = name
+      document.getElementById('profile-name').textContent  = name
       document.getElementById('profile-email').textContent = email
     })
     .catch(() => {

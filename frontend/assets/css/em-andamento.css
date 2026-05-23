@@ -558,3 +558,7 @@ main {
   scroll-behavior: smooth;
   max-width: calc(3 * 390px + 2 * 16px);
 }
+
+#carouselNext {
+  display: none;
+}

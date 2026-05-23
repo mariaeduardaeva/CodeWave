@@ -95,7 +95,35 @@ if (dataInput) {
     }
   })
   dataInput.addEventListener('blur', () => {
-    if (dataInput.value.trim() !== '') limparErroCampo(dataInput)
+    const val = dataInput.value.trim()
+    if (val === '') return
+
+    const partes = val.split('/')
+    if (partes.length === 3) {
+      const dia      = parseInt(partes[0])
+      const mes      = parseInt(partes[1])
+      const ano      = parseInt(partes[2])
+      const anoAtual = new Date().getFullYear()
+
+      if (ano > anoAtual) {
+        marcarErro(dataInput, 'ano inválido')
+        return
+      }
+      if (ano < anoAtual - 100) {
+        marcarErro(dataInput, 'data muito antiga')
+        return
+      }
+      if (mes < 1 || mes > 12) {
+        marcarErro(dataInput, 'mês inválido')
+        return
+      }
+      if (dia < 1 || dia > 31) {
+        marcarErro(dataInput, 'dia inválido')
+        return
+      }
+    }
+
+    limparErroCampo(dataInput)
   })
 }
 
@@ -243,7 +271,22 @@ if (btnCadastro) {
     else if (senhaValor !== confirmarValor) { marcarErro(confirmarSenha, 'senhas diferentes'); temErro = true }
 
     if (!dataNascimento) { marcarErro(dataInput, 'obrigatória'); temErro = true }
-    if (!pais)           { marcarErro(paisSelect, 'obrigatório'); temErro = true }
+    else {
+      const partes = dataNascimento.split('/')
+      if (partes.length === 3) {
+        const ano      = parseInt(partes[2])
+        const anoAtual = new Date().getFullYear()
+        if (ano > anoAtual) {
+          marcarErro(dataInput, 'ano inválido')
+          temErro = true
+        } else if (ano < anoAtual - 100) {
+          marcarErro(dataInput, 'data muito antiga')
+          temErro = true
+        }
+      }
+    }
+
+    if (!pais) { marcarErro(paisSelect, 'obrigatório'); temErro = true }
 
     if (!termos) {
       const termosLabel = document.querySelector('label[for="termos"]')
@@ -254,7 +297,7 @@ if (btnCadastro) {
     if (temErro) return
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/register', {
+      const response = await fetch('/register', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -274,7 +317,7 @@ if (btnCadastro) {
         return
       }
 
-      window.location.href = data.redirect
+      window.location.href = data.redirect ?? '/pages/dashboard.html'
     } catch (error) {
       console.error(error)
       marcarErro(emailInput, 'erro de conexão')

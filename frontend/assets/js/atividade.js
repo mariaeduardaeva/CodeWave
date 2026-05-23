@@ -171,11 +171,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   function items() { return Array.from(lista.querySelectorAll('.atividade-item')); }
 
   function itemsVisiveis() {
-    return items().filter(item => {
+    const filtrados = items().filter(item => {
       const catOk    = filtroAtivo === 'todos' || item.dataset.categoria === filtroAtivo;
       const statusOk = statusAtivo === 'todos' || item.dataset.status    === statusAtivo;
       return catOk && statusOk;
     });
+
+    if (statusAtivo === 'todos') {
+      const ordem = { revisao: 0, pendente: 1, concluido: 2 };
+      filtrados.sort((a, b) => (ordem[a.dataset.status] ?? 1) - (ordem[b.dataset.status] ?? 1));
+
+      filtrados.forEach(el => lista.appendChild(el));
+    }
+
+    return filtrados;
   }
 
   function renderItems(visiveis) {
@@ -187,8 +196,21 @@ document.addEventListener('DOMContentLoaded', async () => {
   function renderPaginacao(visiveis) {
     const totalPaginas = Math.ceil(visiveis.length / porPagina);
     const paginacao    = document.querySelector('.paginacao');
-    const nextBtn      = paginacao.querySelector('.pag-btn:last-child');
-    paginacao.querySelectorAll('.pag-num').forEach(n => n.remove());
+
+    paginacao.innerHTML = '';
+
+    const btnPrev = document.createElement('button');
+    btnPrev.className = 'pag-btn';
+    btnPrev.innerHTML = '<i class="ph ph-caret-left"></i>';
+    btnPrev.disabled = paginaAtual === 1;
+    btnPrev.addEventListener('click', () => {
+      if (paginaAtual > 1) {
+        paginaAtual--;
+        renderItems(itemsVisiveis());
+        renderPaginacao(itemsVisiveis());
+      }
+    });
+    paginacao.appendChild(btnPrev);
 
     for (let i = 1; i <= totalPaginas; i++) {
       const num = document.createElement('span');
@@ -200,8 +222,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderItems(itemsVisiveis());
         renderPaginacao(itemsVisiveis());
       });
-      paginacao.insertBefore(num, nextBtn);
+      paginacao.appendChild(num);
     }
+
+    const btnNext = document.createElement('button');
+    btnNext.className = 'pag-btn';
+    btnNext.innerHTML = '<i class="ph ph-caret-right"></i>';
+    btnNext.disabled = paginaAtual === totalPaginas || totalPaginas === 0;
+    btnNext.addEventListener('click', () => {
+      if (paginaAtual < totalPaginas) {
+        paginaAtual++;
+        renderItems(itemsVisiveis());
+        renderPaginacao(itemsVisiveis());
+      }
+    });
+    paginacao.appendChild(btnNext);
   }
 
   filtros.forEach(btn => {

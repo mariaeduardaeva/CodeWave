@@ -328,3 +328,16 @@ nav {
   text-align: center;
   padding: 8px 0;
 }
+
+.nav-logo {
+  position: absolute;
+  left: 56px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-logo svg {
+  height: 32px;
+  width: auto;
+  display: block;
+}

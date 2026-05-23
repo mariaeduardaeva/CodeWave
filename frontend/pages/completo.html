@@ -38,8 +38,7 @@
             </div>
           </div>
 
-          <div class="cursos-grid" id="cursos-grid">
-          </div>
+          <div class="cursos-grid" id="cursos-grid"></div>
 
           <div class="paginacao">
             <button class="pag-btn"><i class="ph ph-caret-left"></i></button>
@@ -54,7 +53,7 @@
               <img src="../assets/image/trofeu.png" alt="Troféu" class="trofeu-img"/>
               <div>
                 <h3>Parabéns!</h3>
-                <p id="parabens-texto">Você conquistou cursos certificados</p>
+                <p id="parabens-texto">Você conquistou 0 cursos certificados</p>
               </div>
             </div>
             <button class="btn-certificados" onclick="window.location.href='certificados.html'">Ver certificados</button>
@@ -70,12 +69,12 @@
             <div class="conquista-item">
               <i class="ph-fill ph-clock conquista-icon" style="color: #fff; background: #0147a9"></i>
               <span>Horas de estudo</span>
-              <strong>48h 30m</strong>
+              <strong id="resumoHoras">—</strong>
             </div>
             <div class="conquista-item">
               <i class="ph-fill ph-calendar-dots conquista-icon" style="color: #fff; background: #5629b8"></i>
               <span>Sequência atual</span>
-              <strong>10 dias</strong>
+              <strong id="resumoSequencia">—</strong>
             </div>
             <div class="conquista-item">
               <i class="ph-fill ph-star conquista-icon" style="color: #fff; background: #fab705"></i>
@@ -92,6 +91,7 @@
             <img src="../assets/image/explorarcursos.png" alt="" class="continue-img"/>
             <button class="btn-explorar" onclick="window.location.href='dashboard.html'">Explorar cursos</button>
           </div>
+
         </div>
       </div>
     </main>
