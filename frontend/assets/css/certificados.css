@@ -1,0 +1,433 @@
+.logo {
+  position: absolute;
+  top: 56px;
+  left: 56px;
+}
+
+.logo svg {
+  height: 32px;
+  width: auto;
+}
+
+main {
+  padding: 24px 56px;
+}
+
+.dashboard-layout {
+  display: flex;
+  gap: 100px;
+}
+
+.dashboard-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-right {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.section-header p {
+  font-size: 16px;
+  color: #888888;
+  margin-top: 2px;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filtro {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+
+.filtro.active {
+  background: #111111;
+  color: #fff;
+}
+
+.filtro:not(.active):hover {
+  opacity: 0.6;
+}
+
+.filtro-more {
+  font-size: 18px;
+  cursor: pointer;
+  color: #111111;
+  opacity: 0.6;
+}
+
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  min-height: 588px;
+  align-content: start;
+}
+
+.cert-card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-thumb {
+  position: relative;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cert-thumb img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.cert-thumb .card-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.cert-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fff;
+}
+
+.cert-date {
+  font-size: 12px;
+  color: #9C9C9C;
+}
+
+.cert-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #03743c;
+  font-weight: 600;
+}
+
+.cert-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.3;
+}
+
+.cert-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+.cert-link:hover {
+  opacity: 0.6;
+}
+
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #111111;
+  display: flex;
+  align-items: center;
+}
+
+.pag-num {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #9C9C9C;
+}
+
+.pag-num.active {
+  background: #111111;
+  color: #fff;
+}
+
+.trofeu-img {
+  width: 160px;
+  height: 110px;
+  object-fit: contain;
+  margin-left: -57px;
+}
+.parabens-card h3 {
+  font-size: 24px !important;
+  font-weight: 700;
+  color: #111111;
+}
+
+.parabens-top p {
+  font-size: 14px !important;
+  color: #888888;
+  margin-top: 4px;
+}
+
+.parabens-card {
+  background: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+.parabens-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.parabens-top h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.parabens-top p {
+  font-size: 14px;
+  color: #888888;
+  margin-top: 4px;
+}
+
+.btn-certificados {
+  background: transparent;
+  border: 1.5px solid #111111;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+}
+
+.btn-certificados:hover {
+  opacity: 0.6;
+}
+
+.resumo-conquistas {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.resumo-conquistas h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.conquista-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #555555;
+}
+
+.conquista-item span {
+  font-weight: 700;
+  color: #9C9C9C;
+}
+
+.conquista-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.conquista-item strong {
+  margin-left: auto;
+  font-weight: 700;
+  color: #111111;
+}
+
+.baixar-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.baixar-icon {
+  width: 45px;
+  height: 45px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #111111;
+  flex-shrink: 0;
+}
+
+.baixar-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 4px;
+}
+
+.baixar-card p {
+  font-size: 13px;
+  color: #888888;
+  line-height: 1.5;
+}
+
+.continue-card {
+  background: none;
+  border-radius: 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  min-height: 160px;
+}
+
+.continue-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.3;
+  max-width: 55%;
+}
+
+.continue-card p {
+  font-size: 14px;
+  color: #888888;
+  max-width: 55%;
+}
+
+.continue-img {
+  width: 200px;
+  object-fit: contain;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  z-index: 1;
+}
+
+.continue-text {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-explorar {
+  background: transparent;
+  color: #111111;
+  border: 1.5px solid #111111;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  margin-top: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.btn-explorar:hover {
+  opacity: 0.7;
+}
+
+.baixar-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+
+.baixar-card:hover {
+  background: #f5f5f5;
+}
+
+.baixar-card:hover .baixar-icon {
+  background: none;
+  color: #111111;
+}
+
+.baixar-icon i {
+  transition: transform 0.3s ease;
+}
+
+.baixar-card:hover .baixar-icon i {
+  animation: downloadBounce 0.6s ease infinite alternate;
+}
+
+@keyframes downloadBounce {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(5px); }
+}

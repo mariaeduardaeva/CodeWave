@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/pagamento.css">
+  <title>CodeWave - Pagamento</title>
+</head>
+<body>
+
+  <a href="../pages/dashboard.html" class="logo">
+    <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M55 20 L35 40 L55 60" />
+        <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+        <path d="M165 20 L185 40 L165 60" />
+      </g>
+    </svg>
+  </a>
+
+  <div id="navbar"></div>
+
+  <div class="breadcrumb">
+    <a href="dashboard.html">Cursos</a>
+    <span class="bread-sep">›</span>
+    <a href="clicarcurso.html">Programação orientada a objeto</a>
+    <span class="bread-sep">›</span>
+    <span class="bread-current">Pagamento</span>
+  </div>
+
+  <main class="pag-main">
+    <div class="pag-layout">
+
+      <div class="pag-left">
+
+        <div class="pag-hero">
+          <div class="hero-content">
+            <h1>Programação orientada a objeto</h1>
+            <p>Entenda os principais conceitos da programação<br>orientada a objetos e aplique na prática.</p>
+          </div>
+          <div class="hero-img-wrap">
+            <span class="hero-tag">Backend</span>
+            <div class="hero-illustration">
+              <img src="../assets/image/curso_poo.png" alt="POO">
+            </div>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+              <span>16 aulas</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>6h 20m de conteúdo</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>Iniciante</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <span>Backend</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-section">
+          <h2>Escolha a forma de pagamento</h2>
+
+          <div class="payment-options">
+
+            <label class="payment-option selected" for="p-card">
+              <div class="option-left">
+                <input type="radio" id="p-card" name="pagamento" checked>
+                <div class="option-icon card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+                  </svg>
+                </div>
+                <div class="option-info">
+                  <span class="option-name">Cartão de crédito</span>
+                  <span class="option-desc">Pagamento seguro via cartão</span>
+                </div>
+              </div>
+              <div class="card-brands">
+                <img src="../assets/image/Visa.svg" alt="Visa" class="brand-logo">
+                <img src="../assets/image/Mastercard.svg" alt="Mastercard" class="brand-logo">
+                <img src="../assets/image/Elo.svg" alt="Elo" class="brand-logo">
+                <img src="../assets/image/GooglePay.svg" alt="Google Pay" class="brand-logo">
+                <img src="../assets/image/ApplePay.svg" alt="Apple Pay" class="brand-logo">
+              </div>
+            </label>
+
+            <div class="card-form" id="card-form">
+              <div class="form-row">
+                <div class="form-group full">
+                  <label>Número do cartão</label>
+                  <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" id="card-number">
+                </div>
+                <div class="form-row">
+                  <div class="form-group full">
+                    <label>Parcelas</label>
+                    <select id="card-parcelas">
+                      <option value="1">1x de R$ 79,99 (sem juros)</option>
+                      <option value="2">2x de R$ 40,00 (sem juros)</option>
+                      <option value="3">3x de R$ 26,66 (sem juros)</option>
+                      <option value="4">4x de R$ 20,00 (sem juros)</option>
+                      <option value="5">5x de R$ 16,00 (sem juros)</option>
+                      <option value="6">6x de R$ 13,89 (com juros)</option>
+                      <option value="7">7x de R$ 12,14 (com juros)</option>
+                      <option value="8">8x de R$ 10,83 (com juros)</option>
+                      <option value="9">9x de R$ 9,78 (com juros)</option>
+                      <option value="10">10x de R$ 8,99 (com juros)</option>
+                      <option value="11">11x de R$ 8,36 (com juros)</option>
+                      <option value="12">12x de R$ 7,85 (com juros)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label>Validade</label>
+                  <input type="text" placeholder="MM/AA" maxlength="5" id="card-expiry">
+                </div>
+                <div class="form-group">
+                  <label>CVV</label>
+                  <input type="number" placeholder="123" id="card-cvv">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group full">
+                  <label>Nome no cartão</label>
+                  <input type="text" placeholder="Exatamente como está no cartão" id="card-name">
+                </div>
+              </div>
+            </div>
+
+            <label class="payment-option" for="p-pix">
+              <div class="option-left">
+                <input type="radio" id="p-pix" name="pagamento">
+                <div class="option-icon pix-icon">
+                  <i class="ph-fill ph-pix-logo"></i>
+                </div>
+                <div class="option-info">
+                  <span class="option-name">PIX</span>
+                  <span class="option-desc">Aprovação imediata</span>
+                </div>
+              </div>
+              <span class="discount-badge">5% de desconto</span>
+            </label>
+
+            <div class="pix-form" id="pix-form" style="display:none;">
+              <div class="pix-qr">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=codewave-pix-pagamento-fake" alt="QR Code PIX">
+                <div class="pix-info">
+                  <span class="pix-label">Escaneie o QR Code com o app do seu banco</span>
+                  <div class="pix-code-wrap">
+                    <span class="pix-code" id="pix-code">00020126580014br.gov.bcb.pix0136codewave-pix-pagamento-fake</span>
+                    <button class="pix-copy-btn" id="pix-copy">Copiar</button>
+                  </div>
+                  <span class="pix-exp">QR Code válido por <strong>30 minutos</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <label class="payment-option" for="p-boleto">
+              <div class="option-left">
+                <input type="radio" id="p-boleto" name="pagamento">
+                <div class="option-icon boleto-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="1" y="4" width="2" height="16"/><rect x="4" y="4" width="1" height="16"/>
+                    <rect x="6" y="4" width="2" height="16"/>
+                    <rect x="9" y="4" width="1" height="16"/>
+                    <rect x="11" y="4" width="3" height="16"/>
+                    <rect x="15" y="4" width="1" height="16"/>
+                    <rect x="17" y="4" width="2" height="16"/>
+                    <rect x="20" y="4" width="1" height="16"/>
+                    <rect x="22" y="4" width="2" height="16"/>
+                  </svg>
+                </div>
+                <div class="option-info">
+                  <span class="option-name">Boleto bancário</span>
+                  <span class="option-desc">Vence em 3 dias úteis</span>
+                </div>
+              </div>
+            </label>
+            <div class="boleto-form" id="boleto-form" style="display:none;">
+              <div class="boleto-barras">
+                <svg width="100%" height="60" viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="5" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="8" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="14" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="18" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="23" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="26" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="33" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="37" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="43" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="46" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="51" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="55" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="62" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="65" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="71" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="75" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="80" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="83" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="90" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="94" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="100" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="103" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="108" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="112" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="119" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="122" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="128" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="132" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="137" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="140" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="147" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="151" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="157" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="160" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="165" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="169" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="176" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="179" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="185" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="189" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="194" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="197" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="204" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="208" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="214" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="217" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="222" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="226" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="233" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="236" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="242" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="246" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="251" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="254" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="261" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="265" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="271" y="0" width="1" height="60" fill="#111"/>
+                  <rect x="274" y="0" width="3" height="60" fill="#111"/>
+                  <rect x="279" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="283" y="0" width="5" height="60" fill="#111"/>
+                  <rect x="290" y="0" width="2" height="60" fill="#111"/>
+                  <rect x="294" y="0" width="4" height="60" fill="#111"/>
+                  <rect x="300" y="0" width="1" height="60" fill="#111"/>
+                </svg>
+              </div>
+              <div class="boleto-info">
+                <span class="boleto-label">Código do boleto</span>
+                <div class="boleto-code-wrap">
+                  <span class="boleto-code" id="boleto-code">34191.79001 01043.510047 91020.150008 9 99990000007999</span>
+                  <button class="boleto-copy-btn" id="boleto-copy">Copiar</button>
+                </div>
+                <span class="boleto-exp">Boleto válido até <strong>3 dias úteis</strong></span>
+                <button class="boleto-download-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Baixar boleto
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="benefits-row">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="ph-bold ph-timer"></i>
+            </div>
+            <div>
+              <span class="benefit-title">Acesso imediato</span>
+              <span class="benefit-desc">Comece a aprender na hora</span>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="ph-bold ph-certificate"></i>
+            </div>
+            <div>
+              <span class="benefit-title">Certificado de conclusão</span>
+              <span class="benefit-desc">Receba seu certificado ao finalizar</span>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="ph-bold ph-headset"></i>
+            </div>
+            <div>
+              <span class="benefit-title">Suporte dedicado</span>
+              <span class="benefit-desc">Tire dúvidas com nosso time</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pag-right">
+        <div class="order-card">
+          <h3>Resumo do pedido</h3>
+
+          <div class="order-product">
+            <div class="order-thumb">
+              <img src="../assets/image/curso_poo.png" alt="POO">
+            </div>
+            <div class="order-product-info">
+              <span class="order-product-name">Programação Orientada a objeto</span>
+              <span class="order-product-badge">Backend</span>
+            </div>
+          </div>
+
+          <div class="order-divider"></div>
+
+          <div class="order-row">
+            <span class="order-label">Subtotal</span>
+            <span class="order-val" id="subtotal-val">R$ 79,99</span>
+          </div>
+          <div class="order-row">
+            <span class="order-label discount-label">Desconto</span>
+            <span class="order-val discount-val" id="discount-val">-R$ 0,00</span>
+          </div>
+
+          <div class="order-divider"></div>
+
+          <div class="order-row total-row">
+            <span class="order-label total-label">Total</span>
+            <span class="order-total" id="total-val">R$ 79,99</span>
+          </div>
+
+          <div class="secure-box">
+            <i class="ph-bold ph-shield"></i>
+            <div>
+              <span class="secure-title">Ambiente 100% seguro</span>
+              <span class="secure-desc">Seus dados estão protegidos e sua compra é processada com segurança.</span>
+            </div>
+          </div>
+
+          <button class="btn-finalizar" id="btn-finalizar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            Finalizar pagamento
+          </button>
+
+          <p class="guarantee-text">
+            <i class="ph-bold ph-shield"></i>
+            </svg>
+            Garantia de 7 dias ou seu dinheiro de volta
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/cursos.js"></script>
+  <script src="../assets/js/pagamento.js"></script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+.logo {
+  position: absolute;
+  top: 56px;
+  left: 56px;
+}
+
+.logo svg {
+  height: 32px;
+  width: auto;
+}
+
+main {
+  padding: 24px 56px;
+}
+
+.dashboard-layout {
+  display: flex;
+  gap: 100px;
+}
+
+.dashboard-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-right {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.section-header p {
+  font-size: 16px;
+  color: #888888;
+  margin-top: 2px;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filtro {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+
+.filtro.active {
+  background: #111111;
+  color: #fff;
+}
+
+.filtro:not(.active):hover {
+  opacity: 0.6;
+}
+
+.filtro-more {
+  font-size: 18px;
+  cursor: pointer;
+  color: #111111;
+  opacity: 0.6;
+}
+
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  min-height: 588px;
+  align-content: start;
+}
+
+.curso-card {
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.card-tag {
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.curso-card h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  position: relative;
+  z-index: 2;
+  max-width: 60%;
+}
+
+.card-btn {
+  background: rgb(255, 255, 255);
+  border: none;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: fit-content;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+.card-btn:hover {
+  background: rgb(233, 233, 233);
+}
+
+.card-desc {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  line-height: 1.4;
+  position: absolute;
+  bottom: 50px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.card-img {
+  position: absolute;
+  bottom: 30px;
+  right: -10px;
+  width: 270px;
+  height: 270px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.card-date {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+
+.badge-concluido {
+  background: #4ADE80;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: 2px solid #fff;
+}
+
+.badge-concluido i {
+  color: #4ADE80;
+  background: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #111111;
+  display: flex;
+  align-items: center;
+}
+
+.pag-num {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #9C9C9C;
+}
+
+.pag-num.active {
+  background: #111111;
+  color: #fff;
+}
+
+.trofeu-img {
+  width: 160px;
+  height: 110px;
+  object-fit: contain;
+  margin-left: -57px;
+}
+
+.parabens-card h3 {
+  font-size: 24px !important;
+  font-weight: 700;
+  color: #111111;
+}
+
+.parabens-top p {
+  font-size: 14px !important;
+  color: #888888;
+  margin-top: 4px;
+}
+
+.parabens-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.parabens-top h3 {
+  font-size: 22px !important;
+  font-weight: 700;
+  color: #111111;
+}
+
+.parabens-top p {
+  font-size: 14px !important;
+  color: #888888;
+  margin-top: 4px;
+}
+
+.btn-certificados {
+  background: transparent;
+  border: 1.5px solid #111111;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+}
+
+.btn-certificados:hover {
+  opacity: 0.6;
+}
+
+.resumo-conquistas {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.resumo-conquistas h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.conquista-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #555555;
+}
+
+.conquista-item span {
+  font-weight: 700;
+  color: #9C9C9C;
+}
+
+.conquista-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.conquista-item strong {
+  margin-left: auto;
+  font-weight: 700;
+  color: #111111;
+}
+
+.continue-card {
+  background: none;
+  border-radius: 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  min-height: 200px;
+}
+
+.continue-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.3;
+  max-width: 55%;
+}
+
+.continue-card p {
+  font-size: 14px;
+  color: #888888;
+  max-width: 55%;
+}
+
+.continue-img {
+  width: 200px;
+  object-fit: contain;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  z-index: 1;
+}
+
+.continue-text {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-explorar {
+  background: transparent;
+  color: #111111;
+  border: 1.5px solid #111111;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.btn-explorar:hover {
+  border-color: #111111;
+}
