@@ -186,4 +186,54 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   renderCards(cardsVisiveis());
   renderPaginacao(cardsVisiveis());
+
+
+  // Função para testar a API de previsão de compra
+  // Pode-se ajustar os dados de entrada conforme necessário para testar diferentes cenários
+  // LEMBRA DE BAIXAR OS REQUISITOS DA API ANTES DE RODAR ESTA FUNÇÃO TBM
+  // LEMBRE DE RODAR O SERVIDOR DA API ANTES DE TESTAR ESTA FUNÇÃO!!!
+  // comando para rodar a API:
+  // cd backend
+  // py -m uvicorn app.prediction_api:app --reload
+  window.preverCompra = async function () {
+
+  const dados = {
+    idade: 22,
+    tempo_navegacao: 45,
+    preco_curso: 120,
+    categoria: 0,
+    nivel_interesse: 8,
+    visualizacoes: 10,
+    ja_comprou_antes: 1
+  };
+
+  try {
+
+    const response = await fetch("http://127.0.0.1:8000/predict", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(dados)
+    });
+
+    const resultado = await response.json();
+
+    console.log(resultado);
+
+    alert(`
+Probabilidade: ${resultado.probabilidade_compra}
+
+Desconto: ${resultado.desconto}%
+
+Perfil: ${resultado.perfil}
+    `);
+
+  } catch (error) {
+
+    console.error("Erro ao conectar com API:", error);
+
+  }
+}
+
 });
