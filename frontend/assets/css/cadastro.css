@@ -44,7 +44,8 @@ body {
   font-weight: 700;
   color: #ffffff;
   line-height: 1.15;
-  width: 700px;
+  width: auto;
+  max-width: 100%;
 }
 
 .destaque-amarelo {
