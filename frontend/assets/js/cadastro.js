@@ -1,3 +1,4 @@
+const API_BASE = 'http://127.0.0.1:5000'
 const toggleSenha = document.getElementById('toggleSenha')
 const senha = document.getElementById('senha')
 const toggleConfirmar = document.getElementById('toggleConfirmar')
@@ -297,7 +298,7 @@ if (btnCadastro) {
     if (temErro) return
 
     try {
-      const response = await fetch('/register', {
+      const response = await fetch(`${API_BASE}/register`, {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -317,7 +318,10 @@ if (btnCadastro) {
         return
       }
 
-      window.location.href = data.redirect ?? '/pages/dashboard.html'
+      const redirectUrl = data.redirect && data.redirect.startsWith('http')
+        ? data.redirect
+        : `${API_BASE}${data.redirect ?? '/pages/dashboard.html'}`
+      window.location.href = redirectUrl
     } catch (error) {
       console.error(error)
       marcarErro(emailInput, 'erro de conexão')

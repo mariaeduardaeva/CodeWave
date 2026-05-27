@@ -1,3 +1,4 @@
+const API_BASE = 'http://127.0.0.1:5000'
 const toggle = document.getElementById('toggleSenha')
 const senha = document.getElementById('senha')
 const emailInput = document.querySelector('input[type="email"]')
@@ -90,7 +91,7 @@ if (btnLogin) {
     if (temErro) return
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/login', {
+      const response = await fetch(`${API_BASE}/login`, {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -110,7 +111,10 @@ if (btnLogin) {
         return
       }
 
-      window.location.href = data.redirect
+      const redirectUrl = data.redirect && data.redirect.startsWith('http')
+        ? data.redirect
+        : `${API_BASE}${data.redirect}`
+      window.location.href = redirectUrl
     } catch (error) {
       console.error(error)
       marcarErro(emailInput, 'erro de conexão')

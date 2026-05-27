@@ -14,7 +14,7 @@ app.secret_key = "codewave_secret_key"
 app.config.update(SESSION_COOKIE_SAMESITE="Lax", SESSION_COOKIE_SECURE=False)
 
 CORS(app, supports_credentials=True,
-     origins=["http://127.0.0.1:5000", "http://localhost:5000"])
+     resources={r"/*": {"origins": "*"}})
 
 
 def init_db():
