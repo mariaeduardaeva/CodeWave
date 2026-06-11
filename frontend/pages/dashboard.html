@@ -23,9 +23,47 @@
 
  <!-- Botão para testar a IA -->
  <!-- Botão para testar a IA -->
-  <button onclick="preverCompra()">
-    Testar IA
-</button>
+ <div class="ia-panel">
+
+    <h3>Teste da IA</h3>
+
+    <input id="idade" type="number" placeholder="Idade">
+
+    <input id="tempo_navegacao" type="number" placeholder="Tempo de navegação">
+
+    <input id="preco_curso" type="number" placeholder="Preço do curso">
+
+    <input id="categoria" type="number" placeholder="Categoria">
+
+    <input id="nivel_interesse" type="number" placeholder="Nível de interesse">
+
+    <input id="visualizacoes" type="number" placeholder="Visualizações">
+
+    <input id="ja_comprou_antes" type="number" placeholder="Já comprou antes? (0 ou 1)">
+
+    <br><br>
+
+    <button onclick="preverCompra()">Predict</button>
+
+    <button onclick="testarPredictRule()">
+        Predict Rule
+    </button>
+
+    <button onclick="testarCluster()">
+        Cluster
+    </button>
+
+    <button onclick="testarForecast()">
+        Forecast
+    </button>
+
+    <button onclick="testarModelInfo()">
+        Model Info
+    </button>
+
+</div>
+
+
 
   <div id="navbar"></div>
 

@@ -197,43 +197,179 @@ document.addEventListener('DOMContentLoaded', async () => {
   // py -m uvicorn app.prediction_api:app --reload
   window.preverCompra = async function () {
 
-  const dados = {
-    idade: 22,
-    tempo_navegacao: 45,
-    preco_curso: 120,
-    categoria: 0,
-    nivel_interesse: 8,
-    visualizacoes: 10,
-    ja_comprou_antes: 1
-  };
+    const dados = obterDadosFormulario();
 
-  try {
+    try {
 
-    const response = await fetch("http://127.0.0.1:8000/predict", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(dados)
-    });
+        const response = await fetch(
+            "http://127.0.0.1:8000/predict",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dados)
+            }
+        );
 
-    const resultado = await response.json();
+        const resultado = await response.json();
 
-    console.log(resultado);
-
-    alert(`
+        alert(`
 Probabilidade: ${resultado.probabilidade_compra}
 
 Desconto: ${resultado.desconto}%
 
 Perfil: ${resultado.perfil}
-    `);
+        `);
 
-  } catch (error) {
+    } catch (error) {
 
-    console.error("Erro ao conectar com API:", error);
+        console.error(error);
 
-  }
-}
+        alert("Erro ao conectar com a API.");
+
+    }
+};
+
+window.testarPredictRule = async function () {
+
+    const dados = obterDadosFormulario();
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:8000/predict-rule",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dados)
+            }
+        );
+
+        const resultado = await response.json();
+
+        alert(`
+Método: ${resultado.metodo}
+
+Compraria: ${resultado.compraria}
+        `);
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Erro ao conectar com a API.");
+
+    }
+};
+
+window.testarCluster = async function () {
+
+    const dados = obterDadosFormulario();
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:8000/cluster",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dados)
+            }
+        );
+
+        const resultado = await response.json();
+
+        alert(`
+Cluster: ${resultado.cluster}
+        `);
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Erro ao conectar com a API.");
+
+    }
+};
+
+
+window.testarForecast = async function () {
+
+    const dados = obterDadosFormulario();
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:8000/forecast",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dados)
+            }
+        );
+
+        const resultado = await response.json();
+
+        alert(`
+Próxima compra estimada:
+
+${resultado.proxima_compra_estimada}
+        `);
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Erro ao conectar com a API.");
+
+    }
+};
+
+window.testarModelInfo = async function () {
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:8000/model-info"
+        );
+
+        const resultado = await response.json();
+
+        alert(`
+Modelo: ${resultado.modelo}
+
+Objetivo: ${resultado.objetivo}
+        `);
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Erro ao conectar com a API.");
+
+    }
+};
+
 
 });
+
+function obterDadosFormulario() {
+
+    return {
+        idade: Number(document.getElementById("idade").value),
+        tempo_navegacao: Number(document.getElementById("tempo_navegacao").value),
+        preco_curso: Number(document.getElementById("preco_curso").value),
+        categoria: Number(document.getElementById("categoria").value),
+        nivel_interesse: Number(document.getElementById("nivel_interesse").value),
+        visualizacoes: Number(document.getElementById("visualizacoes").value),
+        ja_comprou_antes: Number(document.getElementById("ja_comprou_antes").value)
+    };
+
+}

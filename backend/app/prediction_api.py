@@ -176,7 +176,7 @@ def forecast(cliente: Cliente):
 def model_info():
 
     return {
-        "modelo": "LogisticRegression",
+        "modelo": "Regressão Logística",
         "objetivo": "Prever compra de cursos",
 
         "features": [
