@@ -1,0 +1,672 @@
+@media (min-width: 1920px) {
+
+  /* --- GLOBAL / NAV --- */
+  .navbar,
+  nav {
+    padding: 22px 80px;
+  }
+
+  .nav-logo,
+  .logo {
+    left: 80px;
+  }
+
+  .nav-tab,
+  .nav-item {
+    font-size: 18px;
+  }
+
+  .breadcrumb {
+    padding: 16px 80px;
+    font-size: 17px;
+  }
+
+  /* --- LANDING PAGE --- */
+  .hero {
+    padding: 48px 240px;
+    gap: 80px;
+  }
+
+  .hero-left {
+    max-width: 600px;
+  }
+
+  .hero-left h1 {
+    font-size: 58px;
+  }
+
+  .hero-left p {
+    font-size: 18px;
+    max-width: 520px;
+  }
+
+  .hero-right img {
+    max-width: 860px;
+  }
+
+  .features {
+    padding: 20px 280px;
+    gap: 56px;
+  }
+
+  .feature-item h3 { font-size: 17px; }
+  .feature-item p  { font-size: 14px; }
+  .feature-icon    { font-size: 38px; }
+  .cursos-destaque {
+    padding: 60px 240px;
+    gap: 72px;
+  }
+
+  .cursos-destaque-left { max-width: 360px; }
+  .cursos-destaque-left h2 { font-size: 40px; }
+  .destaque-card {
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    height: 240px;
+  }
+
+  .destaque-card h3 { font-size: 26px; }
+
+  /* --- LOGIN / CADASTRO / TERMOS --- */
+  .login-left {
+    width: 44%;
+  }
+
+  .login-left-text {
+    margin-top: 200px;
+    padding-left: 60px;
+  }
+
+  .login-left-text h1 {
+    font-size: 64px;
+    width: auto;
+  }
+
+  .login-left-desc {
+    font-size: 20px;
+    max-width: 480px;
+  }
+
+  .login-right {
+    padding: 260px 0;
+  }
+
+  .login-form-wrapper {
+    max-width: 600px;
+  }
+
+  /* --- DASHBOARD --- */
+  main {
+    padding: 32px 80px;
+  }
+
+  .dashboard-layout {
+    gap: 120px;
+  }
+
+  .dashboard-right {
+    width: 340px;
+  }
+
+  .section-header h2,
+  .atividades-header h2 {
+    font-size: 42px;
+  }
+
+  .section-header p { font-size: 18px; }
+  .filtro           { font-size: 18px; }
+
+  .cursos-grid {
+    gap: 20px;
+  }
+
+  .curso-card {
+    min-height: 320px;
+  }
+
+  .curso-card h3 { font-size: 32px; }
+
+  /* ATIVIDADES */
+  .atividades-thead,
+  .atividade-row {
+    grid-template-columns: 1fr 340px 140px 40px;
+    font-size: 17px;
+  }
+
+  /* CLICARCURSO */
+  .curso-main  { padding: 0 80px 56px; }
+  .curso-layout { gap: 120px; }
+  .curso-right  { width: 340px; }
+  .hero-content h1 { font-size: 44px; }
+
+  /* PAGAMENTO */
+  .pag-main   { padding: 0 80px 80px; }
+  .pag-layout { gap: 120px; }
+  .pag-right  { width: 440px; }
+}
+
+@media (max-width: 1440px) {
+
+  /* --- LANDING PAGE --- */
+  .hero {
+    padding: 24px 120px;
+  }
+
+  .hero-left h1 {
+    font-size: 44px;
+  }
+
+  .hero-right img {
+    max-width: 640px;
+  }
+
+  .features {
+    padding: 12px 160px;
+  }
+
+  .cursos-destaque {
+    padding: 40px 120px;
+  }
+
+  /* --- LOGIN / CADASTRO / TERMOS --- */
+  .login-left {
+    width: 40%;
+  }
+
+  .login-left-text {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .login-left-text h1 {
+    font-size: 46px;
+    width: auto;
+    max-width: 100%;
+    line-height: 1.1;
+    overflow-wrap: break-word;
+  }
+
+  .login-left-desc {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .login-right {
+    padding: 180px 0;
+  }
+
+  .login-form-wrapper {
+    max-width: 480px;
+  }
+
+  /* --- DASHBOARD --- */
+  .dashboard-layout {
+    gap: 80px;
+  }
+
+  .dashboard-right {
+    width: 280px;
+  }
+
+  /* --- CURSO --- */
+  .curso-layout {
+    gap: 80px;
+  }
+
+  .curso-right {
+    width: 280px;
+  }
+
+  /* --- PAGAMENTO --- */
+  .pag-layout {
+    gap: 80px;
+  }
+
+  .pag-right {
+    width: 360px;
+  }
+}
+
+@media (max-width: 1280px) {
+
+  /* --- GLOBAL / NAV --- */
+  .navbar,
+  nav {
+    padding: 16px 40px;
+  }
+
+  .nav-logo,
+  .logo {
+    left: 40px;
+    top: 40px;
+  }
+
+  .nav-tab,
+  .nav-item {
+    font-size: 15px;
+    padding: 6px 16px;
+  }
+
+  .breadcrumb {
+    padding: 12px 40px;
+    font-size: 14px;
+  }
+
+  /* --- LANDING PAGE --- */
+  main {
+    padding-top: 80px;
+  }
+
+  .hero {
+    padding: 24px 72px;
+    gap: 32px;
+  }
+
+  .hero-left {
+    max-width: 420px;
+  }
+
+  .hero-left h1 {
+    font-size: 38px;
+  }
+
+  .hero-left p {
+    font-size: 15px;
+  }
+
+  .hero-right img {
+    max-width: 520px;
+  }
+
+  .btn-cadastrar,
+  .btn-entrar {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .features {
+    padding: 12px 88px;
+    gap: 24px;
+  }
+
+  .feature-icon    { font-size: 28px; }
+  .feature-item h3 { font-size: 14px; }
+  .feature-item p  { font-size: 12px; }
+  .cursos-destaque {
+    padding: 36px 72px;
+    gap: 28px;
+  }
+
+  .cursos-destaque-left {
+    max-width: 230px;
+  }
+
+  .cursos-destaque-left h2 {
+    font-size: 26px;
+  }
+
+  .destaque-card {
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+    height: 185px;
+  }
+
+  .destaque-card h3 { font-size: 18px; }
+  .card-img {
+    width: 175px;
+    height: 175px;
+  }
+
+  /* --- LOGIN / CADASTRO / TERMOS --- */
+  .login-left {
+    width: 36%;
+  }
+
+  .login-left-text {
+    margin-top: 140px;
+    padding-left: 20px;
+  }
+
+  .login-left-text h1 {
+    font-size: 46px;
+  }
+
+  .login-left-desc {
+    font-size: 16px;
+    max-width: 340px;
+  }
+
+  .login-right {
+    padding: 180px 0;
+  }
+
+  .login-form-wrapper {
+    max-width: 440px;
+  }
+
+  .form-grid {
+    gap: 16px;
+  }
+
+  /* --- DASHBOARD --- */
+  main {
+    padding: 20px 40px;
+  }
+
+  .dashboard-layout {
+    gap: 56px;
+  }
+
+  .dashboard-right {
+    width: 260px;
+  }
+
+  .section-header h2,
+  .atividades-header h2 {
+    font-size: 28px;
+  }
+
+  .filtro {
+    font-size: 14px;
+    padding: 5px 14px;
+  }
+
+  /* GRID CURSOS */
+  .cursos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .curso-card {
+    min-height: 240px;
+  }
+
+  .curso-card h3 { font-size: 22px; }
+  .card-img {
+    width: 220px;
+    height: 220px;
+  }
+
+  /* CARROSSEL DASH */
+  .cursos-carousel .curso-card {
+    min-width: 300px;
+  }
+
+  /* ATIVIDADES TABELA */
+  .atividades-thead,
+  .atividade-row {
+    grid-template-columns: 1fr 220px 110px 32px;
+    font-size: 14px;
+  }
+
+  .ativ-thumb {
+    width: 110px;
+    height: 80px;
+  }
+
+  .ativ-info h3    { font-size: 14px; }
+  .ativ-info p     { font-size: 12px; }
+  .ativ-badge      { font-size: 12px; }
+
+  /* CONQUISTAS */
+  .resumo-conquistas h3 { font-size: 17px; }
+  .conquista-item       { font-size: 14px; }
+  .continue-card h3     { font-size: 16px; }
+  .parabens-top h3      { font-size: 18px !important; }
+
+  /* --- CURSO --- */
+  .curso-main { padding: 0 40px 40px; }
+  .curso-layout {
+    gap: 48px;
+  }
+
+  .curso-right {
+    width: 260px;
+  }
+
+  .hero-content h1 { font-size: 30px; }
+  .hero-content p  { font-size: 14px; }
+  .aula-nome       { font-size: 14px; }
+  .sidebar-card h3 { font-size: 17px; }
+
+  /* --- PAGAMENTO --- */
+  .pag-main { padding: 0 40px 56px; }
+  .pag-layout {
+    gap: 48px;
+  }
+
+  .pag-right {
+    width: 320px;
+  }
+
+  .hero-content h1 { font-size: 28px; }
+  .payment-section h2 { font-size: 22px; }
+  .order-card { padding: 18px; }
+  .order-total { font-size: 20px; }
+}
+
+@media (max-width: 1100px) {
+
+  /* --- GLOBAL / NAV --- */
+  .navbar,
+  nav {
+    padding: 14px 24px;
+  }
+
+  .nav-tab,
+  .nav-item {
+    font-size: 14px;
+    padding: 5px 12px;
+  }
+
+  .nav-center {
+    gap: 16px;
+  }
+
+  .breadcrumb {
+    padding: 10px 24px;
+  }
+
+  /* --- LANDING PAGE --- */
+  .hero {
+    padding: 20px 40px;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .hero-left p    { max-width: 560px; }
+  .hero-buttons   { justify-content: center; }
+  .hero-social    { justify-content: center; }
+  .hero-right     { width: 100%; }
+  .hero-right img { max-width: 480px; }
+  .features {
+    padding: 12px 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .feature-item {
+    flex: 1 1 calc(50% - 20px);
+    min-width: 200px;
+  }
+
+  .cursos-destaque {
+    flex-direction: column;
+    padding: 28px 40px;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .cursos-destaque-left {
+    max-width: 100%;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  .cursos-destaque-left h2 {
+    font-size: 22px;
+    max-width: 400px;
+  }
+
+  .destaque-wrapper { width: 100%; }
+  .destaque-card {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    height: 175px;
+  }
+
+  .destaque-card h3 { font-size: 16px; }
+  .card-img {
+    width: 155px;
+    height: 155px;
+  }
+
+  /* --- LOGIN / CADASTRO / TERMOS --- */
+  .login-left {
+    width: 34%;
+  }
+
+  .login-left-text h1 {
+    font-size: 38px;
+    width: auto;
+  }
+
+  .login-left-desc {
+    font-size: 15px;
+    max-width: 280px;
+  }
+
+  .login-img {
+    width: 120%;
+  }
+
+  .login-right {
+    padding: 140px 0;
+  }
+
+  .login-form-wrapper {
+    max-width: 380px;
+  }
+
+  /* CADASTRO */
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* TERMOS */
+  .termos-header h2 {
+    font-size: 26px;
+    width: auto;
+  }
+
+  .pag-right {
+    width: 290px;
+  }
+
+  /* --- DASHBOARD --- */
+  main {
+    padding: 16px 24px;
+  }
+
+  .dashboard-layout {
+    gap: 32px;
+  }
+
+  .dashboard-right {
+    width: 240px;
+  }
+
+  .section-header h2,
+  .atividades-header h2 {
+    font-size: 24px;
+  }
+
+  /* GRID CURSOS */
+  .cursos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .curso-card {
+    min-height: 220px;
+  }
+  .curso-card h3 { font-size: 20px; }
+
+  /* CARROSSEL */
+  .cursos-carousel .curso-card {
+    min-width: 260px;
+  }
+
+  /* ATIVIDADES TABELA */
+  .atividades-thead,
+  .atividade-row {
+    grid-template-columns: 1fr 100px 32px;
+  }
+
+  .atividades-thead > *:nth-child(2),
+  .atividade-row > *:nth-child(2) {
+    display: none;
+  }
+
+  .ativ-thumb {
+    width: 90px;
+    height: 68px;
+  }
+
+  /* SIDEBAR DIREITA */
+  .dashboard-right {
+    width: 220px;
+  }
+
+  .trofeu-img {
+    width: 120px;
+    margin-left: -40px;
+  }
+
+  .continue-img { width: 160px; }
+  .cal-col { padding: 6px 8px; }
+
+  /* --- CLICACURSO --- */
+  .curso-main   { padding: 0 24px 32px; }
+  .curso-layout {
+    gap: 32px;
+  }
+
+  .curso-right {
+    width: 240px;
+  }
+
+  .hero-content h1 { font-size: 26px; }
+  .conteudo-section h2 { font-size: 22px; }
+  .aula-nome { font-size: 13px; }
+  .aula-dur  { font-size: 12px; }
+
+  /* --- PAGAMENTO --- */
+  .pag-main   { padding: 0 24px 40px; }
+  .pag-layout {
+    gap: 32px;
+  }
+
+  .pag-right {
+    width: 280px;
+  }
+
+  .payment-section h2 { font-size: 20px; }
+  .option-name        { font-size: 14px; }
+  .option-desc        { font-size: 12px; }
+  .order-card h3      { font-size: 16px; }
+  .order-total        { font-size: 18px; }
+  .benefits-row {
+    gap: 16px;
+  }
+}
