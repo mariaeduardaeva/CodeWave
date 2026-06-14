@@ -21,6 +21,15 @@ document.getElementById("ia-modal").addEventListener("click", function (e) {
 
 document.addEventListener('DOMContentLoaded', async () => {
 
+
+  // Função para testar a API de previsão de compra
+  // Pode-se ajustar os dados de entrada conforme necessário para testar diferentes cenários
+  // LEMBRA DE BAIXAR OS REQUISITOS DA API ANTES DE RODAR ESTA FUNÇÃO TBM
+  // LEMBRE DE RODAR O SERVIDOR DA API ANTES DE TESTAR ESTA FUNÇÃO!!!
+  // comando para rodar a API:
+  // cd backend
+  // py -m uvicorn app.prediction_api:app --reload
+
   window.preverCompra = async function () {
     const dados = obterDadosFormulario();
     try {
@@ -31,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
       const resultado = await response.json();
       abrirModal("Predict", [
-        { label: "Probabilidade de compra", valor: resultado.probabilidade_compra },
+        { label: "Probabilidade de compra", valor: `${Math.round(resultado.probabilidade_compra * 100)}%` },
         { label: "Desconto", valor: resultado.desconto + "%" },
         { label: "Perfil", valor: resultado.perfil }
       ]);
