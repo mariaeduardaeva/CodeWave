@@ -49,19 +49,13 @@ cd CodeWave
 pip install -r backend/requirements.txt
 ```
 
-**3. Treine o modelo**
-
-```bash
-python backend/train.py
-```
-
-**4. Inicie a API**
+**3. Inicie a API**
 
 ```bash
 uvicorn backend.app:app --reload
 ```
 
-**5. Abra o frontend**
+**4. Abra o frontend**
 
 Abra o arquivo `frontend/admin.html` no navegador.
 
