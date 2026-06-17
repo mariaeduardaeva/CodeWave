@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css" />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/atividade.css" />
+    <title>CodeWave - Atividades</title>
+  </head>
+  <body>
+    <a href="../pages/dashboard.html" class="logo">
+      <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M55 20 L35 40 L55 60" />
+          <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+          <path d="M165 20 L185 40 L165 60" />
+        </g>
+      </svg>
+    </a>
+
+    <div id="navbar"></div>
+
+    <main>
+      <div class="dashboard-layout">
+        <div class="dashboard-left">
+
+          <div class="ativ-header">
+            <div class="ativ-header-top">
+              <div>
+                <h2>Minhas Atividades</h2>
+                <p>Suas atividades de todos os cursos</p>
+              </div>
+              <div class="ativ-filtros-wrap">
+                <div class="filtros-status">
+                  <span class="filtro-status active" data-status="todos">Mais recentes</span>
+                  <span class="filtro-status" data-status="concluido">Concluídas</span>
+                  <span class="filtro-status" data-status="pendente">A concluir</span>
+                  <span class="filtro-more">⋮</span>
+                </div>
+                <div class="filtros-categoria">
+                  <span class="filtro active" data-filter="todos">Todos</span>
+                  <span class="filtro" data-filter="backend">Backend</span>
+                  <span class="filtro" data-filter="frontend">Frontend</span>
+                  <span class="filtro-more">⋮</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="atividades-lista" id="atividadesList">
+
+            <div class="atividade-item" data-categoria="backend" data-status="concluido">
+              <div class="ativ-thumb" style="background: #0147a9">
+                <img src="../assets/image/curso_poo.png" alt="">
+              </div>
+              <div class="ativ-info">
+                <span class="ativ-tipo">Exercício</span>
+                <h3>Variáveis e Tipos de Dados</h3>
+                <p>Programação orientada a objeto</p>
+                <span class="ativ-data"><i class="ph ph-calendar-blank"></i> Concluído em 28 de maio de 2026</span>
+              </div>
+              <div class="ativ-right">
+                <span class="ativ-badge concluido">Concluído <i class="ph-bold ph-check-circle"></i></span>
+                <button class="ativ-btn">Ver solução <i class="ph ph-caret-right"></i></button>
+              </div>
+            </div>
+
+            <div class="atividade-item" data-categoria="backend" data-status="concluido">
+              <div class="ativ-thumb" style="background: #0147a9">
+                <img src="../assets/image/curso_poo.png" alt="">
+              </div>
+              <div class="ativ-info">
+                <span class="ativ-tipo">Exercício</span>
+                <h3>Herança e Polimorfismo</h3>
+                <p>Programação orientada a objeto</p>
+                <span class="ativ-data"><i class="ph ph-calendar-blank"></i> Concluído em 28 de maio de 2026</span>
+              </div>
+              <div class="ativ-right">
+                <span class="ativ-badge concluido">Concluído <i class="ph-bold ph-check-circle"></i></span>
+                <button class="ativ-btn">Ver solução <i class="ph ph-caret-right"></i></button>
+              </div>
+            </div>
+
+            <div class="atividade-item" data-categoria="frontend" data-status="pendente">
+              <div class="ativ-thumb" style="background: #5629b8">
+                <img src="../assets/image/curso_figma.png" alt="">
+              </div>
+              <div class="ativ-info">
+                <span class="ativ-tipo">Exercício</span>
+                <h3>Criando interfaces com Figma</h3>
+                <p>Básicos de Figma</p>
+                <span class="ativ-data"><i class="ph ph-calendar-blank"></i> A concluir</span>
+              </div>
+              <div class="ativ-right">
+                <span class="ativ-badge pendente">Pendente <i class="ph-bold ph-hourglass"></i></span>
+                <button class="ativ-btn">Ver solução <i class="ph ph-caret-right"></i></button>
+              </div>
+            </div>
+
+            <div class="atividade-item" data-categoria="frontend" data-status="revisao">
+              <div class="ativ-thumb" style="background: #03743c">
+                <img src="../assets/image/curso_html.png" alt="">
+              </div>
+              <div class="ativ-info">
+                <span class="ativ-tipo">Exercício</span>
+                <h3>Construindo uma página web</h3>
+                <p>HTML e CSS</p>
+                <span class="ativ-data"><i class="ph ph-calendar-blank"></i> Concluído em 15 de maio de 2026</span>
+              </div>
+              <div class="ativ-right">
+                <span class="ativ-badge revisao">Em revisão <i class="ph ph-bold ph-clock"></i></span>
+                <button class="ativ-btn">Ver solução <i class="ph ph-caret-right"></i></button>
+              </div>
+            </div>
+
+            <div class="atividade-item" data-categoria="backend" data-status="pendente">
+              <div class="ativ-thumb" style="background: #fd7b12">
+                <img src="../assets/image/curso_java.png" alt="">
+              </div>
+              <div class="ativ-info">
+                <span class="ativ-tipo">Exercício</span>
+                <h3>Orientação a Objetos em Java</h3>
+                <p>Java: básico ao avançado</p>
+                <span class="ativ-data"><i class="ph ph-calendar-blank"></i> A concluir</span>
+              </div>
+              <div class="ativ-right">
+                <span class="ativ-badge pendente">Pendente <i class="ph-bold ph-hourglass"></i></span>
+                <button class="ativ-btn">Ver solução <i class="ph ph-caret-right"></i></button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="paginacao">
+            <button class="pag-btn"><i class="ph ph-caret-left"></i></button>
+            <span class="pag-num active">1</span>
+            <span class="pag-num">2</span>
+            <span class="pag-num">3</span>
+            <button class="pag-btn"><i class="ph ph-caret-right"></i></button>
+          </div>
+
+        </div>
+
+        <div class="dashboard-right">
+
+          <div class="parabens-card">
+            <div class="parabens-top">
+              <img src="../assets/image/trofeu.png" alt="Troféu" class="trofeu-img"/>
+              <div>
+                <h3>Parabéns!</h3>
+                <p>Você conquistou<br>6 cursos certificados</p>
+              </div>
+            </div>
+            <button class="btn-certificados" onclick="window.location.href='certificados.html'">Ver certificados</button>
+          </div>
+
+          <div class="resumo-conquistas">
+            <h3>Resumo de atividades</h3>
+            <div class="conquista-item">
+              <i class="ph-bold ph-hourglass conquista-icon" style="color: #fff; background: #FA1905"></i>
+              <span>Atividades pendentes</span>
+              <strong>2</strong>
+            </div>
+            <div class="conquista-item">
+              <i class="ph-bold ph-clock conquista-icon" style="color: #fff; background: #0D57B8"></i>
+              <span>Em revisão</span>
+              <strong>1</strong>
+            </div>
+            <div class="conquista-item">
+              <i class="ph-bold ph-check-circle conquista-icon" style="color: #fff; background: #0DB86C"></i>
+              <span>Atividades concluídas</span>
+              <strong>21</strong>
+            </div>
+          </div>
+
+          <div class="continue-card">
+            <div class="continue-text">
+              <h3>Continue aprendendo nunca é demais!</h3>
+              <p>Confira mais cursos recomendados para você</p>
+            </div>
+            <img src="../assets/image/explorarcursos.png" alt="" class="continue-img"/>
+            <button class="btn-explorar" onclick="window.location.href='dashboard.html'">Explorar cursos</button>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/cursos.js"></script>
+    <script src="../assets/js/atividade.js"></script>
+  </body>
+</html> 

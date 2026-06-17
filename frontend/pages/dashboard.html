@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <title>CodeWave - Dashboard</title>
+</head>
+<body>
+
+  <a href="../pages/dashboard.html" class="logo">
+    <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M55 20 L35 40 L55 60" />
+        <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+        <path d="M165 20 L185 40 L165 60" />
+      </g>
+    </svg>
+  </a>
+
+
+
+  <div id="navbar"></div>
+
+  <main>
+    <div class="dashboard-layout">
+
+      <div class="dashboard-left">
+
+        <div class="section-header">
+          <div>
+            <h2>Cursos</h2>
+            <p>Explore todos os cursos disponíveis na plataforma</p>
+          </div>
+          <div class="filtros">
+            <span class="filtro active" data-filter="todos">Todos</span>
+            <span class="filtro" data-filter="backend">Backend</span>
+            <span class="filtro" data-filter="frontend">Frontend</span>
+            <span class="filtro-more">⋮</span>
+          </div>
+        </div>
+
+        <div class="cursos-grid" id="cursos-grid">
+        </div>
+
+        <div class="paginacao">
+          <button class="pag-btn"><i class="ph ph-caret-left"></i></button>
+          <span class="pag-num active">1</span>
+          <span class="pag-num">2</span>
+          <span class="pag-num">3</span>
+          <button class="pag-btn"><i class="ph ph-caret-right"></i></button>
+        </div>
+
+      </div>
+
+      <div class="dashboard-right">
+
+        <h2 class="sequencia">Você está em uma sequência de 10 dias!</h2>
+
+        <div class="calendario">
+          <div class="cal-header">
+            <span>Abril de 2026</span>
+            <div class="cal-nav">
+              <button><i class="ph ph-caret-left"></i></button>
+              <button class="cal-btn-active"><i class="ph ph-caret-right"></i></button>
+            </div>
+          </div>
+          <div class="cal-grid">
+            <div class="cal-col">
+              <span class="cal-ds">Seg</span>
+              <span class="cal-d">26</span>
+            </div>
+            <div class="cal-col">
+              <span class="cal-ds">Ter</span>
+              <span class="cal-d">27</span>
+            </div>
+            <div class="cal-col">
+              <span class="cal-ds">Qua</span>
+              <span class="cal-d">28</span>
+            </div>
+            <div class="cal-col hoje-col">
+              <span class="cal-ds">Qui</span>
+              <span class="cal-d">29</span>
+            </div>
+            <div class="cal-col">
+              <span class="cal-ds">Sex</span>
+              <span class="cal-d">30</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="agenda">
+          <div class="agenda-item"><span class="hora">14:00</span><span>HTML e CSS para iniciantes</span></div>
+          <div class="agenda-item"><span class="hora">15:00</span><span>Java: básico ao avançado</span></div>
+          <div class="agenda-item highlight"><span class="hora">21:00</span><span>Básicos de Figma</span></div>
+          <div class="agenda-item"><span class="hora">22:00</span><span>ReactJS: Como funciona?</span></div>
+          <div class="agenda-item"><span class="hora">09:00</span><span>Programação orientada a objeto</span></div>
+        </div>
+
+        <div class="banner-cursos">
+          <img src="../assets/image/cadastrologinimage.png" alt="" class="banner-img">
+          <button class="banner-btn" onclick="window.location.href='em-andamento.html'">Meus cursos</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="../assets/js/cursos.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

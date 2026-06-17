@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css" />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/certificados.css" />
+    <title>CodeWave - Certificados</title>
+  </head>
+  <body>
+    <a href="../pages/dashboard.html" class="logo">
+      <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M55 20 L35 40 L55 60" />
+          <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+          <path d="M165 20 L185 40 L165 60" />
+        </g>
+      </svg>
+    </a>
+
+    <div id="navbar"></div>
+
+    <main>
+      <div class="dashboard-layout">
+        <div class="dashboard-left">
+
+          <div class="section-header">
+            <div>
+              <h2>Meus Certificados</h2>
+              <p>Aqui estão todos os certificados que você conquistou</p>
+            </div>
+            <div class="filtros">
+              <span class="filtro active" data-filter="todos">Todos</span>
+              <span class="filtro" data-filter="backend">Backend</span>
+              <span class="filtro" data-filter="frontend">Frontend</span>
+              <span class="filtro-more">⋮</span>
+            </div>
+          </div>
+
+          <div class="cursos-grid" id="certificadosGrid">
+            <p style="color:#9C9C9C; padding:24px 0">Carregando certificados...</p>
+          </div>
+
+          <div class="paginacao">
+            <button class="pag-btn"><i class="ph ph-caret-left"></i></button>
+            <button class="pag-btn"><i class="ph ph-caret-right"></i></button>
+          </div>
+
+        </div>
+
+        <div class="dashboard-right">
+
+          <div class="parabens-card">
+            <div class="parabens-top">
+              <img src="../assets/image/trofeu.png" alt="Troféu" class="trofeu-img"/>
+              <div>
+                <h3>Parabéns!</h3>
+                <p id="parabensTexto">Você conquistou<br>0 certificados</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="resumo-conquistas">
+            <h3>Resumo de conquistas</h3>
+            <div class="conquista-item">
+              <i class="ph-fill ph-student conquista-icon" style="color: #fff; background: #03743c"></i>
+              <span>Cursos concluídos</span>
+              <strong id="resumoConcluidos">0</strong>
+            </div>
+            <div class="conquista-item">
+              <i class="ph-fill ph-clock conquista-icon" style="color: #fff; background: #0147a9"></i>
+              <span>Horas de estudo</span>
+              <strong id="resumoHoras">—</strong>
+            </div>
+            <div class="conquista-item">
+              <i class="ph-fill ph-calendar-dots conquista-icon" style="color: #fff; background: #5629b8"></i>
+              <span>Sequência atual</span>
+              <strong id="resumoSequencia">—</strong>
+            </div>
+            <div class="conquista-item">
+              <i class="ph-fill ph-star conquista-icon" style="color: #fff; background: #fab705"></i>
+              <span>Certificados</span>
+              <strong id="resumoCertificados">0</strong>
+            </div>
+          </div>
+
+          <div class="baixar-card">
+            <div class="baixar-icon">
+              <i class="ph ph-download-simple"></i>
+            </div>
+            <div>
+              <h3>Baixar todos os certificados</h3>
+              <p>Faça o download de todos os seus certificados em uma pasta zipada.</p>
+            </div>
+          </div>
+
+          <div class="continue-card">
+            <div class="continue-text">
+              <h3>Continue aprendendo nunca é demais!</h3>
+              <p>Confira mais cursos para o seu aprendizado!</p>
+            </div>
+            <img src="../assets/image/explorarcursos.png" alt="" class="continue-img"/>
+            <button class="btn-explorar" onclick="window.location.href='dashboard.html'">Explorar cursos</button>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/cursos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="../assets/js/certificados.js"></script>
+  </body>
+</html>

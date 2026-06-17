@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <title>Inteligência Artificial</title>
+</head>
+<body>
+
+  <a href="../pages/dashboard.html" class="logo">
+    <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M55 20 L35 40 L55 60" />
+        <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+        <path d="M165 20 L185 40 L165 60" />
+      </g>
+    </svg>
+  </a>
+
+  <div id="navbar"></div>
+
+  <main>
+
+    <div class="ia-header">
+      <h2>Painel de IA</h2>
+      <p>Utilize as ferramentas de inteligência artificial para analisar, prever e entender melhor os dados da plataforma.</p>
+    </div>
+
+    <div class="ia-filtros-box">
+      <h4>Filtros para análise e predições</h4>
+      <div class="ia-filtros-grid">
+
+        <div class="ia-filtro-item">
+          <label>Idade</label>
+          <input id="idade" type="number" placeholder="Todos">
+        </div>
+
+        <div class="ia-filtro-item">
+          <label>Tempo de navegação</label>
+          <input id="tempo_navegacao" type="number" placeholder="Todos">
+        </div>
+
+        <div class="ia-filtro-item">
+          <label>Preço do curso</label>
+          <input id="preco_curso" type="number" placeholder="Todos">
+        </div>
+
+        <div class="ia-filtro-item">
+          <label>Categoria</label>
+          <input id="categoria" type="number" placeholder="Todas">
+        </div>
+
+        <div class="ia-filtro-item">
+          <label>Nível de interesse</label>
+          <input id="nivel_interesse" type="number" placeholder="Todas">
+        </div>
+
+        <div class="ia-filtro-item">
+          <label>Visualizações</label>
+          <input id="visualizacoes" type="number" placeholder="Todas">
+        </div>
+
+        <div class="ia-filtro-item">
+          <label>Já comprou antes?</label>
+          <div class="ia-select-wrap">
+            <select id="ja_comprou_antes">
+              <option value="">Selecionar</option>
+              <option value="1">Sim</option>
+              <option value="0">Não</option>
+            </select>
+            <i class="ph ph-caret-down"></i>
+          </div>
+        </div>
+
+        <div class="ia-filtro-item ia-filtro-limpar">
+          <button onclick="limparFiltros()"><i class="ph-bold ph-trash-simple"></i> Limpar</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ia-ferramentas">
+      <h3>Ferramentas de IA</h3>
+      <p>Selecione uma ferramenta abaixo para começar sua análise.</p>
+
+      <div class="ia-cards">
+
+        <div class="ia-card" style="background: #0147A9;">
+          <img src="../assets/image/ia-predict.png" alt="" class="ia-card-img">
+          <h4>Predict</h4>
+          <div class="ia-card-line"></div>
+          <p>Prever a probabilidade de compra de novos usuários.</p>
+          <button onclick="preverCompra()">Acessar <i class="ph ph-arrow-right"></i></button>
+        </div>
+
+        <div class="ia-card" style="background: #5529B9;">
+          <img src="../assets/image/ia-predictrule.png" alt="" class="ia-card-img">
+          <h4>Predict Rule</h4>
+          <div class="ia-card-line"></div>
+          <p>Visualizar as regras de decisão utilizadas pelo modelo.</p>
+          <button onclick="testarPredictRule()">Acessar <i class="ph ph-arrow-right"></i></button>
+        </div>
+
+        <div class="ia-card" style="background: #03753C;">
+          <img src="../assets/image/ia-cluster.png" alt="" class="ia-card-img">
+          <h4>Cluster</h4>
+          <div class="ia-card-line"></div>
+          <p>Segmentar usuários em grupos comportamentais.</p>
+          <button onclick="testarCluster()">Acessar <i class="ph ph-arrow-right"></i></button>
+        </div>
+
+        <div class="ia-card" style="background: #FC7C15;">
+          <img src="../assets/image/ia-forecast.png" alt="" class="ia-card-img">
+          <h4>Forecast</h4>
+          <div class="ia-card-line"></div>
+          <p>Prever tendências de compras e comportamentos futuros.</p>
+          <button onclick="testarForecast()">Acessar <i class="ph ph-arrow-right"></i></button>
+        </div>
+
+        <div class="ia-card" style="background: #01A7AF;">
+          <img src="../assets/image/ia-modelinfo.png" alt="" class="ia-card-img">
+          <h4>Model Info</h4>
+          <div class="ia-card-line"></div>
+          <p>Informações detalhadas sobre o modelo e seu desempenho.</p>
+          <button onclick="testarModelInfo()">Acessar <i class="ph ph-arrow-right"></i></button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <div class="ia-modal-overlay" id="ia-modal">
+    <div class="ia-modal">
+      <div class="ia-modal-header">
+        <h4 id="ia-modal-titulo"></h4>
+        <button onclick="fecharModal()"><i class="ph ph-x"></i></button>
+      </div>
+      <div class="ia-modal-body" id="ia-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="../assets/js/cursos.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/clicarcurso.css">
+  <title>CodeWave - Programação Orientada a Objeto</title>
+</head>
+<body>
+
+  <a href="../pages/dashboard.html" class="logo">
+    <svg width="auto" height="18" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M55 20 L35 40 L55 60" />
+        <path d="M70 40 C80 22, 96 22, 110 40 C124 58, 140 58, 150 40" />
+        <path d="M165 20 L185 40 L165 60" />
+      </g>
+    </svg>
+  </a>
+
+  <div id="navbar"></div>
+
+  <div class="breadcrumb">
+    <a href="dashboard.html">Cursos</a>
+    <span class="bread-sep">›</span>
+    <span class="bread-current">Programação orientada a objeto</span>
+  </div>
+
+  <main class="curso-main">
+    <div class="curso-layout">
+
+      <div class="curso-left">
+
+        <div class="curso-hero">
+          <div class="hero-content">
+            <h1>Programação orientada a objeto</h1>
+            <p>Entenda os principais conceitos da programação orientada a objetos e aplique na prática.</p>
+            <div class="hero-btns">
+              <button class="btn-continuar">
+                Continuar aula
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+              </button>
+              <button class="btn-conteudo">Ver conteúdo</button>
+            </div>
+          </div>
+          <div class="hero-img-wrap">
+            <span class="hero-tag">Backend</span>
+            <div class="hero-illustration">
+              <img src="../assets/image/curso_poo.png" alt="Programação Orientada a Objeto">
+            </div>
+          </div>
+          <div class="hero-progress">
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 75%"></div>
+            </div>
+            <span class="hero-progress-label">75% Concluído</span>
+          </div>
+        </div>
+
+        <div class="conteudo-section">
+          <h2>Conteúdo do curso</h2>
+          <div class="aulas-list">
+
+            <div class="aula-item concluida">
+              <div class="aula-left">
+                <div class="aula-icon concluida-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="aula-info">
+                  <span class="aula-nome">Aula 1 - Introdução à POO</span>
+                  <span class="aula-dur">10 minutos</span>
+                </div>
+              </div>
+              <div class="aula-right">
+                <span class="aula-badge concluida-badge">Concluída</span>
+                <button class="aula-toggle" onclick="toggleAula(this)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="aula-dropdown" style="display:none;">
+              <p>Nesta aula você aprenderá os conceitos fundamentais da Programação Orientada a Objetos.</p>
+            </div>
+
+            <div class="aula-item em-andamento">
+              <div class="aula-left">
+                <div class="aula-icon play-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+                <div class="aula-info">
+                  <span class="aula-nome">Aula 2 - Conceitos básicos</span>
+                  <span class="aula-dur">15 minutos</span>
+                </div>
+              </div>
+              <div class="aula-right">
+                <span class="aula-badge andamento-badge">Em andamento</span>
+                <button class="aula-toggle" onclick="toggleAula(this)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="aula-dropdown" style="display:none;">
+              <p>Aprofunde-se nos conceitos básicos: classes, objetos, atributos e métodos.</p>
+            </div>
+
+            <div class="aula-item bloqueada">
+              <div class="aula-left">
+                <div class="aula-icon lock-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="aula-info">
+                  <span class="aula-nome">Aula 3 - Encapsulamento</span>
+                  <span class="aula-dur">20 minutos</span>
+                </div>
+              </div>
+              <div class="aula-right">
+                <span class="aula-badge bloqueada-badge">Bloqueada</span>
+                <button class="aula-toggle" onclick="toggleAula(this)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="aula-dropdown" style="display:none;">
+              <p>Entenda o princípio do encapsulamento: como proteger os dados internos de um objeto.</p>
+            </div>
+
+            <div class="aula-item bloqueada">
+              <div class="aula-left">
+                <div class="aula-icon lock-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="aula-info">
+                  <span class="aula-nome">Aula 4 - Herança</span>
+                  <span class="aula-dur">18 minutos</span>
+                </div>
+              </div>
+              <div class="aula-right">
+                <span class="aula-badge bloqueada-badge">Bloqueada</span>
+                <button class="aula-toggle" onclick="toggleAula(this)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="aula-dropdown" style="display:none;">
+              <p>Descubra como a herança permite criar novas classes a partir de classes existentes.</p>
+            </div>
+
+            <div class="aula-item bloqueada">
+              <div class="aula-left">
+                <div class="aula-icon lock-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="aula-info">
+                  <span class="aula-nome">Aula 5 - Polimorfismo</span>
+                  <span class="aula-dur">22 minutos</span>
+                </div>
+              </div>
+              <div class="aula-right">
+                <span class="aula-badge bloqueada-badge">Bloqueada</span>
+                <button class="aula-toggle" onclick="toggleAula(this)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="aula-dropdown" style="display:none;">
+              <p>Aprenda como o polimorfismo permite que objetos de diferentes classes sejam tratados de forma uniforme.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="curso-right">
+
+        <div class="sidebar-card">
+          <h3>Seu progresso</h3>
+          <div class="progresso-wrap">
+            <div class="progresso-circle">
+              <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="42" fill="none" stroke="#e5e7eb" stroke-width="10"/>
+                <circle cx="50" cy="50" r="42" fill="none" stroke="#356EF6" stroke-width="10"
+                  stroke-dasharray="263.9" stroke-dashoffset="66"
+                  stroke-linecap="round"
+                  transform="rotate(-90 50 50)"/>
+              </svg>
+              <span class="progresso-pct">75%</span>
+            </div>
+            <div class="progresso-stats">
+              <div class="stat-item">
+                <div class="stat-icon blue">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+                <div>
+                  <span class="stat-val">12 de 16</span>
+                  <span class="stat-label">Aulas concluídas</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon gray">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <span class="stat-val">06h 20m</span>
+                  <span class="stat-label">Tempo total</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon orange">🔥</div>
+                <div>
+                  <span class="stat-val">10 dias</span>
+                  <span class="stat-label">Sequência</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Próxima aula</h3>
+          <div class="proxima-aula">
+            <div class="proxima-thumb">
+              <img src="../assets/image/curso_poo.png" alt="Conceitos básicos">
+            </div>
+            <div class="proxima-info">
+              <div class="proxima-titulo-row">
+                <span class="proxima-titulo">Conceitos básicos</span>
+                <span class="proxima-badge">Aula 2</span>
+              </div>
+              <span class="proxima-dur">15 minutos</span>
+              <div class="proxima-quando">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9C9C9C" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>Hoje • 21 Horas</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn-continuar-black">Continuar</button>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Sobre o curso</h3>
+          <p class="sobre-desc">Aprenda os pilares da Programação Orientada a Objetos e como aplicá-los para criar códigos mais organizados, reutilizáveis e fáceis de manter.</p>
+          <div class="sobre-meta">
+            <div class="meta-row">
+              <div class="meta-left">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9C9C9C" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <span>Nível</span>
+              </div>
+              <span class="meta-val">Iniciante</span>
+            </div>
+            <div class="meta-row">
+              <div class="meta-left">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9C9C9C" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <span>Categoria</span>
+              </div>
+              <span class="meta-val">Backend</span>
+            </div>
+          </div>
+          <a href="dashboard.html" class="ver-mais-link">Ver mais cursos ›</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/cursos.js"></script>
+  <script src="../assets/js/clicarcurso.js"></script>
+</body>
+</html>
