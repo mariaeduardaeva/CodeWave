@@ -63,7 +63,7 @@ uvicorn backend.app:app --reload
 
 **5. Abra o frontend**
 
-Abra o arquivo `frontend/index.html` no navegador.
+Abra o arquivo `frontend/admin.html` no navegador.
 
 ---
 
