@@ -6,9 +6,6 @@ import pandas as pd
 import os
 
 
-# CONFIGURAÇÃO DA API
-
-
 app = FastAPI()
 
 # liberar acesso do frontend
@@ -21,8 +18,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-# CARREGAR MODELO
 
 
 base_dir = os.path.dirname(__file__)
@@ -38,7 +33,7 @@ with open(model_path, "rb") as f:
     model = pickle.load(f)
 
 
-# MODELO DE DADOS
+# modelo da estrutura de dados do cliente que a API vai receber
 
 
 class Cliente(BaseModel):
@@ -50,8 +45,6 @@ class Cliente(BaseModel):
     visualizacoes: int
     ja_comprou_antes: int
 
-
-# FUNÇÕES AUXILIARES
 
 
 def calcular_desconto(probabilidade):
@@ -76,7 +69,6 @@ def definir_perfil(cliente):
     return "econômico"
 
 
-# ROTA PRINCIPAL
 
 
 @app.get("/")
@@ -87,7 +79,7 @@ def home():
     }
 
 
-# PREDIÇÃO COM IA
+# predição com modelo de machine learning (regressão logística)
 
 
 @app.post("/predict")
@@ -119,7 +111,7 @@ def predict(cliente: Cliente):
     }
 
 
-# PREDIÇÃO POR REGRA FIXA
+# predição com regras fixas (sem IA, só pra comparar resultados e mostrar que tem lógica por trás)
 
 
 @app.post("/predict-rule")
@@ -137,7 +129,7 @@ def predict_rule(cliente: Cliente):
     }
 
 
-# CLUSTER / PERFILAGEM
+# clusterização de clientes 
 
 
 @app.post("/cluster")
@@ -150,7 +142,7 @@ def cluster(cliente: Cliente):
     }
 
 
-# PREVISÃO DE NOVA COMPRA
+# previsão de tempo para próxima compra 
 
 
 @app.post("/forecast")
@@ -170,7 +162,7 @@ def forecast(cliente: Cliente):
     }
 
 
-# INFORMAÇÕES DO MODELO
+# endpoint para mostrar informações do modelo e da API
 
 @app.get("/model-info")
 def model_info():
